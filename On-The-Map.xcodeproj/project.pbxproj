@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9224368A24C8D759001129AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224368924C8D759001129AB /* AppDelegate.swift */; };
 		9224368C24C8D759001129AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224368B24C8D759001129AB /* SceneDelegate.swift */; };
-		9224368E24C8D759001129AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224368D24C8D759001129AB /* ViewController.swift */; };
+		9224368E24C8D759001129AB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224368D24C8D759001129AB /* MapVC.swift */; };
 		9224369124C8D759001129AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9224368F24C8D759001129AB /* Main.storyboard */; };
 		9224369324C8D75A001129AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9224369224C8D75A001129AB /* Assets.xcassets */; };
 		9224369624C8D75A001129AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9224369424C8D75A001129AB /* LaunchScreen.storyboard */; };
@@ -22,7 +22,7 @@
 		9224368624C8D759001129AB /* On-The-Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "On-The-Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9224368924C8D759001129AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9224368B24C8D759001129AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9224368D24C8D759001129AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9224368D24C8D759001129AB /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		9224369024C8D759001129AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9224369224C8D75A001129AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9224369524C8D75A001129AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 			children = (
 				9224368924C8D759001129AB /* AppDelegate.swift */,
 				9224368B24C8D759001129AB /* SceneDelegate.swift */,
-				9224368D24C8D759001129AB /* ViewController.swift */,
+				9224368D24C8D759001129AB /* MapVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				922436A124C8D884001129AB /* UdacityAPI.swift in Sources */,
-				9224368E24C8D759001129AB /* ViewController.swift in Sources */,
+				9224368E24C8D759001129AB /* MapVC.swift in Sources */,
 				9224368A24C8D759001129AB /* AppDelegate.swift in Sources */,
 				922436A524C8D8CA001129AB /* StudentList.swift in Sources */,
 				922436A324C8D8AD001129AB /* StudentLocation.swift in Sources */,
