@@ -13,6 +13,9 @@
 		9224369124C8D759001129AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9224368F24C8D759001129AB /* Main.storyboard */; };
 		9224369324C8D75A001129AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9224369224C8D75A001129AB /* Assets.xcassets */; };
 		9224369624C8D75A001129AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9224369424C8D75A001129AB /* LaunchScreen.storyboard */; };
+		922436A124C8D884001129AB /* UdacityAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922436A024C8D884001129AB /* UdacityAPI.swift */; };
+		922436A324C8D8AD001129AB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922436A224C8D8AD001129AB /* StudentLocation.swift */; };
+		922436A524C8D8CA001129AB /* StudentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922436A424C8D8CA001129AB /* StudentList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		9224369224C8D75A001129AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9224369524C8D75A001129AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9224369724C8D75A001129AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		922436A024C8D884001129AB /* UdacityAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityAPI.swift; sourceTree = "<group>"; };
+		922436A224C8D8AD001129AB /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		922436A424C8D8CA001129AB /* StudentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		9224368824C8D759001129AB /* On-The-Map */ = {
 			isa = PBXGroup;
 			children = (
-				9224368924C8D759001129AB /* AppDelegate.swift */,
-				9224368B24C8D759001129AB /* SceneDelegate.swift */,
-				9224368D24C8D759001129AB /* ViewController.swift */,
-				9224368F24C8D759001129AB /* Main.storyboard */,
-				9224369224C8D75A001129AB /* Assets.xcassets */,
-				9224369424C8D75A001129AB /* LaunchScreen.storyboard */,
+				9224369F24C8D868001129AB /* Model */,
+				9224369D24C8D83A001129AB /* Controller */,
+				9224369E24C8D85A001129AB /* View */,
 				9224369724C8D75A001129AB /* Info.plist */,
 			);
 			path = "On-The-Map";
+			sourceTree = "<group>";
+		};
+		9224369D24C8D83A001129AB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9224368924C8D759001129AB /* AppDelegate.swift */,
+				9224368B24C8D759001129AB /* SceneDelegate.swift */,
+				9224368D24C8D759001129AB /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9224369E24C8D85A001129AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9224368F24C8D759001129AB /* Main.storyboard */,
+				9224369224C8D75A001129AB /* Assets.xcassets */,
+				9224369424C8D75A001129AB /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9224369F24C8D868001129AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				922436A024C8D884001129AB /* UdacityAPI.swift */,
+				922436A224C8D8AD001129AB /* StudentLocation.swift */,
+				922436A424C8D8CA001129AB /* StudentList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				922436A124C8D884001129AB /* UdacityAPI.swift in Sources */,
 				9224368E24C8D759001129AB /* ViewController.swift in Sources */,
 				9224368A24C8D759001129AB /* AppDelegate.swift in Sources */,
+				922436A524C8D8CA001129AB /* StudentList.swift in Sources */,
+				922436A324C8D8AD001129AB /* StudentLocation.swift in Sources */,
 				9224368C24C8D759001129AB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
