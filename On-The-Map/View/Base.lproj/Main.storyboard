@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" textLabel="4AA-PA-shM" detailTextLabel="vtL-nu-uoR" style="IBUITableViewCellStyleSubtitle" id="Phe-Bd-GYN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" textLabel="4AA-PA-shM" detailTextLabel="2Zg-AC-Utd" style="IBUITableViewCellStyleSubtitle" id="Phe-Bd-GYN">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Phe-Bd-GYN" id="0AO-nq-MOa">
@@ -30,8 +30,8 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vtL-nu-uoR">
-                                            <rect key="frame" x="20" y="31.5" width="33" height="14.5"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Zg-AC-Utd">
+                                            <rect key="frame" x="20" y="31.5" width="44" height="14.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -114,10 +114,24 @@
                     <view key="view" contentMode="scaleToFill" id="azl-NA-NHY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IPp-Eb-AJK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="IPp-Eb-AJK" firstAttribute="leading" secondItem="fTM-eC-AkF" secondAttribute="leading" id="47q-qu-LjJ"/>
+                            <constraint firstItem="IPp-Eb-AJK" firstAttribute="top" secondItem="fTM-eC-AkF" secondAttribute="top" id="BQB-p7-Nts"/>
+                            <constraint firstItem="fTM-eC-AkF" firstAttribute="bottom" secondItem="IPp-Eb-AJK" secondAttribute="bottom" id="mYS-0j-uQa"/>
+                            <constraint firstItem="fTM-eC-AkF" firstAttribute="trailing" secondItem="IPp-Eb-AJK" secondAttribute="trailing" id="wEQ-uI-I8w"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="fTM-eC-AkF"/>
                     </view>
                     <navigationItem key="navigationItem" id="99J-IU-K4f"/>
+                    <connections>
+                        <outlet property="mapView" destination="IPp-Eb-AJK" id="fII-m0-aew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITU-3n-TB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

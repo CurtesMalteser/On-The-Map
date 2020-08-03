@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import MapKit
 
-class MapVC: UIViewController {
+class MapVC: UIViewController, MKMapViewDelegate {
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +35,7 @@ class MapVC: UIViewController {
             do {
                 let studentLocationList = try decoder.decode(StudentList.self, from: data)
                 DispatchQueue.main.async {
-                    print(studentLocationList)
+                    self.addStudentsPointAnnotation(studentLocationList)
                 }
             } catch {
                 print(error)
@@ -43,5 +47,26 @@ class MapVC: UIViewController {
         
     }
     
+    private func addStudentsPointAnnotation(_ studentLocationList: StudentList) {
+        
+        studentLocationList.results.forEach { studentLocation in
+            
+            print(studentLocation)
+            
+            let point = MKPointAnnotation()
+            
+            
+            point.title = "\(studentLocation.firstName) \(studentLocation.lastName)"
+                .trimmingCharacters(in: .whitespaces)
+            
+            point.subtitle = studentLocation.mediaURL
+            
+            point.coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
+            
+            mapView.addAnnotation(point)
+            
+        }
+        
+    }
     
 }
