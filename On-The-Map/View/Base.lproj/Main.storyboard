@@ -59,7 +59,7 @@
         <scene sceneID="S2m-zj-e0T">
             <objects>
                 <navigationController id="FcE-9p-er5" userLabel="Student Location Table" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="dFo-qh-8gs"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="dFo-qh-8gs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8kr-uK-eQo">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -94,7 +94,7 @@
         <scene sceneID="MDP-JR-cm3">
             <objects>
                 <navigationController id="vJ1-8m-b5z" userLabel="Map" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="nbC-yR-fPr"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="nbC-yR-fPr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JiS-Qq-kOh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -141,4 +141,8 @@
             <point key="canvasLocation" x="4380" y="-307"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list.bullet" catalog="system" width="128" height="88"/>
+        <image name="map" catalog="system" width="128" height="113"/>
+    </resources>
 </document>
