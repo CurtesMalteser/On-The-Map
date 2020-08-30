@@ -9,5 +9,5 @@
 import Foundation
 
 enum UdacityAPI: String {
-    case getListOfStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?order=-updatedAt"
+    case getListOfStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100?order=-updatedAt"
 }
