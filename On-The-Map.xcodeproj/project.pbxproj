@@ -17,6 +17,7 @@
 		922436A324C8D8AD001129AB /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922436A224C8D8AD001129AB /* StudentLocation.swift */; };
 		922436A524C8D8CA001129AB /* StudentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922436A424C8D8CA001129AB /* StudentList.swift */; };
 		925733E824CE161800A09B77 /* StudentsLocationTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925733E724CE161800A09B77 /* StudentsLocationTableVC.swift */; };
+		92E6F8EE24FBD62C00370198 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E6F8ED24FBD62C00370198 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		922436A224C8D8AD001129AB /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		922436A424C8D8CA001129AB /* StudentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentList.swift; sourceTree = "<group>"; };
 		925733E724CE161800A09B77 /* StudentsLocationTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLocationTableVC.swift; sourceTree = "<group>"; };
+		92E6F8ED24FBD62C00370198 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				9224368B24C8D759001129AB /* SceneDelegate.swift */,
 				9224368D24C8D759001129AB /* MapVC.swift */,
 				925733E724CE161800A09B77 /* StudentsLocationTableVC.swift */,
+				92E6F8ED24FBD62C00370198 /* LoginVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			files = (
 				922436A124C8D884001129AB /* UdacityAPI.swift in Sources */,
 				9224368E24C8D759001129AB /* MapVC.swift in Sources */,
+				92E6F8EE24FBD62C00370198 /* LoginVC.swift in Sources */,
 				9224368A24C8D759001129AB /* AppDelegate.swift in Sources */,
 				922436A524C8D8CA001129AB /* StudentList.swift in Sources */,
 				925733E824CE161800A09B77 /* StudentsLocationTableVC.swift in Sources */,

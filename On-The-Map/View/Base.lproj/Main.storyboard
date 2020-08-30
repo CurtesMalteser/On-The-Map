@@ -81,7 +81,7 @@
         <!--Login View Controller-->
         <scene sceneID="uC0-Rl-S49">
             <objects>
-                <viewController id="iSS-va-SF7" userLabel="Login View Controller" sceneMemberID="viewController">
+                <viewController id="iSS-va-SF7" userLabel="Login View Controller" customClass="LoginVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0rV-3I-NNN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
