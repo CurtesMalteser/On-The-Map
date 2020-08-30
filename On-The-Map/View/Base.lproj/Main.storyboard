@@ -46,7 +46,13 @@
                             <outlet property="delegate" destination="Vdy-sg-Wzx" id="Efj-It-66G"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ifY-yW-QfI"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="ifY-yW-QfI">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bY1-Ky-iMw"/>
+                        <rightBarButtonItems>
+                            <barButtonItem image="plus" catalog="system" id="Q1o-XK-EiV"/>
+                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="c5s-k0-k07"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="studentLocationTable" destination="RgI-2J-JAW" id="cZq-tM-Hq0"/>
                     </connections>
@@ -107,7 +113,7 @@
             </objects>
             <point key="canvasLocation" x="3448" y="-307"/>
         </scene>
-        <!--MapVC-->
+        <!--On The Map-->
         <scene sceneID="BUe-IJ-Aox">
             <objects>
                 <viewController id="hvM-T6-cDq" customClass="MapVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
@@ -131,7 +137,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fTM-eC-AkF"/>
                     </view>
-                    <navigationItem key="navigationItem" id="99J-IU-K4f"/>
+                    <navigationItem key="navigationItem" title="On The Map" id="99J-IU-K4f">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ST7-wJ-Fm6"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="hfu-ig-Aki"/>
+                            <barButtonItem image="arrow.clockwise" catalog="system" id="UL0-is-wuo"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="IPp-Eb-AJK" id="fII-m0-aew"/>
                     </connections>
@@ -142,7 +154,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="map" catalog="system" width="128" height="113"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>
