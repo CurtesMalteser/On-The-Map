@@ -14,13 +14,6 @@ class LoginVC:UIViewController {
     
     @IBOutlet weak var passwordTextFied: UITextField!
     
-    
-    override func viewDidLoad() {
-        
-        
-        
-    }
-    
     @IBAction func performLogin(_ sender: Any) {
         
         guard let loginURL = URL(string: UdacityAPI.postSession.rawValue) else {
@@ -67,8 +60,20 @@ class LoginVC:UIViewController {
             
             let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
             print(String(data: newData!, encoding: .utf8)!)
+            
+            DispatchQueue.main.async {
+                self.segueOnLoginSuccess()
+            }
+            
         }
         task.resume()
+    }
+    
+    // Performs segue to Tab Controller
+    private func segueOnLoginSuccess() {
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeTabBarController") as? UITabBarController
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
     }
     
 }

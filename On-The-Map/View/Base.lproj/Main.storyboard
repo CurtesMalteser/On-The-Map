@@ -140,7 +140,8 @@
         <!--Tab Bar Controller-->
         <scene sceneID="BFO-PZ-YAa">
             <objects>
-                <tabBarController id="lyV-XP-HMP" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lyV-XP-HMP" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="IIA-aq-OTN"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MN4-jG-mft">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
