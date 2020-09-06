@@ -10,8 +10,61 @@ import UIKit
 
 class LoginVC:UIViewController {
     
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    @IBOutlet weak var passwordTextFied: UITextField!
+    
+    
     override func viewDidLoad() {
-      
+        
+        // todo -> move to func
+        //        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        //            if error != nil { // Handle error…
+        //                return
+        //            }
+        //
+        //            let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
+        //            print(String(data: newData!, encoding: .utf8)!)
+        //        }
+        //        task.resume()
+        
+    }
+    
+    @IBAction func performLogin(_ sender: Any) {
+    
+    guard let loginURL = URL(string: UdacityAPI.postSession.rawValue) else {
+        print("Cannot create URL")
+        return
+    }
+    
+    guard let email = emailTextField.text else {
+       // todo -> add validator and show message
+    return
+    }
+    
+    guard let password = passwordTextFied.text else {
+        // todo -> show message if empty
+        return
+        
+    }
+    
+    var request = initRequest(url: loginURL, username: email, password: password)
+        
+        
+    }
+  
+    
+    private func initRequest(url: URL, username: String, password: String) -> URLRequest {
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        // encoding a JSON body from a string, can also use a Codable struct
+        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
+        
+        return request
     }
     
 }

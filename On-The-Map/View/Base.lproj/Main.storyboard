@@ -102,6 +102,9 @@
                                 <rect key="frame" x="48" y="292" width="318" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Log In"/>
                                 <state key="normal" title="LOG IN"/>
+                                <connections>
+                                    <action selector="performLogin:" destination="iSS-va-SF7" eventType="touchUpInside" id="i3x-Ih-yf1"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-dl-8wm">
                                 <rect key="frame" x="87" y="101" width="240" height="17.5"/>
@@ -125,6 +128,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I8s-kq-hec"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="JCL-Aq-dKP" id="rm7-6f-zKS"/>
+                        <outlet property="passwordTextFied" destination="BuP-Ao-EmT" id="9mJ-i7-wG3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTA-fr-8BU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
