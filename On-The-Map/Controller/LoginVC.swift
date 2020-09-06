@@ -17,42 +17,33 @@ class LoginVC:UIViewController {
     
     override func viewDidLoad() {
         
-        // todo -> move to func
-        //        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-        //            if error != nil { // Handle error…
-        //                return
-        //            }
-        //
-        //            let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
-        //            print(String(data: newData!, encoding: .utf8)!)
-        //        }
-        //        task.resume()
+        
         
     }
     
     @IBAction func performLogin(_ sender: Any) {
-    
-    guard let loginURL = URL(string: UdacityAPI.postSession.rawValue) else {
-        print("Cannot create URL")
-        return
-    }
-    
-    guard let email = emailTextField.text else {
-       // todo -> add validator and show message
-    return
-    }
-    
-    guard let password = passwordTextFied.text else {
-        // todo -> show message if empty
-        return
         
+        guard let loginURL = URL(string: UdacityAPI.postSession.rawValue) else {
+            print("Cannot create URL")
+            return
+        }
+        
+        guard let email = emailTextField.text else {
+            // todo -> add validator and show message
+            return
+        }
+        
+        guard let password = passwordTextFied.text else {
+            // todo -> show message if empty
+            return
+            
+        }
+        
+        let request = initRequest(url: loginURL, username: email, password: password)
+        
+        executeDataTask(request: request)
     }
     
-    var request = initRequest(url: loginURL, username: email, password: password)
-        
-        
-    }
-  
     
     private func initRequest(url: URL, username: String, password: String) -> URLRequest {
         
@@ -65,6 +56,19 @@ class LoginVC:UIViewController {
         request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
         
         return request
+    }
+    
+    private func executeDataTask(request: URLRequest) {
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if error != nil { // Handle error…
+                print("error \(String(describing: error))")
+                return
+            }
+            
+            let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
+            print(String(data: newData!, encoding: .utf8)!)
+        }
+        task.resume()
     }
     
 }
