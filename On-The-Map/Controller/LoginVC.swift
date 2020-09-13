@@ -32,56 +32,24 @@ class LoginVC:UIViewController {
             
         }
         
-        let request = initRequest(url: loginURL, username: email, password: password)
+        let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
         
-        executeDataTask(request: request)
+        UdacityAPI.executeDataTask(request: request,
+                        sucessHandler: { data in self.onLoginSucess(data: data) },
+                        errorHandler: { error in print("error \(String(describing: error))")})
     }
     
     
-    private func initRequest(url: URL, username: String, password: String) -> URLRequest {
-        
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            
-            let studentLocationList = try JSONEncoder().encode(
-                UdacityLogin(udacity: UdacityLoginBody(
-                    username: username, password: password
-                    )
-                )
-            )
-            
-            request.httpBody = studentLocationList
-            
-        } catch {
-            print(error)
-        }
-        
-        
-        
-        return request
-    }
     
-    private func executeDataTask(request: URLRequest) {
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if error != nil { // Handle error…
-                print("error \(String(describing: error))")
-                return
-            }
-            
-            let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
-            print(String(data: newData!, encoding: .utf8)!)
-            
-            DispatchQueue.main.async {
-                self.segueOnLoginSuccess()
-            }
-            
+    private func onLoginSucess(data: Data) {
+        let newData = data.subdata(in: 5..<data.count) /* subset response data! */
+        
+        print(String(data: newData, encoding: .utf8)!)
+        
+        DispatchQueue.main.async {
+            self.segueOnLoginSuccess()
         }
-        task.resume()
+        
     }
     
     // Performs segue to Tab Controller
