@@ -14,6 +14,11 @@ class StudentsLocationTableVC:UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet var studentLocationTable: UITableView!
     
+    @IBAction func logoutButtonAction(_ sender: Any) {
+         print("logout from table")
+     }
+     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -47,7 +47,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="On The Map" id="ifY-yW-QfI">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bY1-Ky-iMw"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="bY1-Ky-iMw">
+                            <connections>
+                                <action selector="logoutButtonAction:" destination="Vdy-sg-Wzx" id="b6i-YZ-S4K"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="plus" catalog="system" id="Q1o-XK-EiV"/>
                             <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="c5s-k0-k07"/>
@@ -198,7 +202,11 @@
                         <viewLayoutGuide key="safeArea" id="fTM-eC-AkF"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="99J-IU-K4f">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ST7-wJ-Fm6"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="ST7-wJ-Fm6">
+                            <connections>
+                                <action selector="logoutButtonAction:" destination="hvM-T6-cDq" id="UWv-c9-QkK"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="plus" catalog="system" id="hfu-ig-Aki"/>
                             <barButtonItem image="arrow.clockwise" catalog="system" id="UL0-is-wuo"/>
