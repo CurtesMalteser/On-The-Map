@@ -8,9 +8,15 @@
 
 import Foundation
 
-enum UdacityAPI: String {
+class UdacityAPI {
     
-    case getListOfStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100?order=-updatedAt"
-    
-    case udacitySessionURL = "https://onthemap-api.udacity.com/v1/session"
+    enum Endpoint: String {
+        
+        case getListOfStudentLocation = "https://onthemap-api.udacity.com/v1/StudentLocation?limit=100?order=-updatedAt"
+        
+        case udacitySessionURL = "https://onthemap-api.udacity.com/v1/session"
+        
+        var url : URL? {return URL(string: self.rawValue)}
+        
+    }
 }

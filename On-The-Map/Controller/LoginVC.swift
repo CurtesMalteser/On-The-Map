@@ -16,7 +16,7 @@ class LoginVC:UIViewController {
     
     @IBAction func performLogin(_ sender: Any) {
         
-        guard let loginURL = URL(string: UdacityAPI.udacitySessionURL.rawValue) else {
+        guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
             print("Cannot create URL")
             return
         }

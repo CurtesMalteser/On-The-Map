@@ -22,7 +22,7 @@ class MapVC: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        guard let studentsURL = URL(string: UdacityAPI.getListOfStudentLocation.rawValue) else {
+        guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
             print("Cannot create URL")
             return
         }
