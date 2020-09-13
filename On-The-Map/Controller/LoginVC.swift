@@ -45,8 +45,23 @@ class LoginVC:UIViewController {
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        // encoding a JSON body from a string, can also use a Codable struct
-        request.httpBody = "{\"udacity\": {\"username\": \"\(username)\", \"password\": \"\(password)\"}}".data(using: .utf8)
+        
+        do {
+            
+            let studentLocationList = try JSONEncoder().encode(
+                UdacityLogin(udacity: UdacityLoginBody(
+                    username: username, password: password
+                    )
+                )
+            )
+            
+            request.httpBody = studentLocationList
+            
+        } catch {
+            print(error)
+        }
+        
+        
         
         return request
     }
