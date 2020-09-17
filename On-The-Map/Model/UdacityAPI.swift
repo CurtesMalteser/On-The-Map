@@ -58,9 +58,22 @@ class UdacityAPI {
             print(error)
         }
         
+        return request
+    }
+    
+    class func deleteSessionRequest(url: URL) -> URLRequest{
         
+        var request = URLRequest(url:url)
+        request.httpMethod = "DELETE"
+    
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        
+        if let xsrfCookie  = sharedCookieStorage.cookies?.filter({$0.name == "XSRF-TOKEN"}).first {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
         
         return request
+        
     }
     
 }

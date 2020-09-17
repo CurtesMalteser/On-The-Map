@@ -29,7 +29,6 @@ class LoginVC:UIViewController {
         guard let password = passwordTextFied.text else {
             // todo -> show message if empty
             return
-            
         }
         
         let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)

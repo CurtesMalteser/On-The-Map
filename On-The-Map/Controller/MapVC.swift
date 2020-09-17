@@ -98,4 +98,14 @@ class MapVC: UIViewController, MKMapViewDelegate {
         }
     }
     
+    // MARK: todo - perform segue if logout succeeds
+    private func onLogoutSucess(data: Data) {
+        let newData = data.subdata(in: 5..<data.count) /* subset response data! */
+        print(String(data: newData, encoding: .utf8)!)
+        
+        DispatchQueue.main.async {
+            //self.segueOnLoginSuccess()
+        }
+    }
+    
 }
