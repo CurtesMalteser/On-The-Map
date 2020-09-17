@@ -15,7 +15,17 @@ class MapVC: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func logoutButtonAction(_ sender: Any) {
-        print("logout from map")
+        
+        guard let logoutURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
+                   print("Cannot create URL")
+                   return
+               }
+        
+        let request = UdacityAPI.deleteSessionRequest(url: logoutURL)
+        
+        UdacityAPI.executeDataTask(request: request,
+        sucessHandler: { data in self.onLogoutSucess(data: data) },
+        errorHandler: { error in print("error \(String(describing: error))")})
     }
     
     override func viewDidLoad() {
@@ -104,8 +114,14 @@ class MapVC: UIViewController, MKMapViewDelegate {
         print(String(data: newData, encoding: .utf8)!)
         
         DispatchQueue.main.async {
-            //self.segueOnLoginSuccess()
+            self.segueOnLogoutSuccess()
         }
     }
+    
+    private func segueOnLogoutSuccess() {
+           let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+           self.view.window?.rootViewController = homeViewController
+           self.view.window?.makeKeyAndVisible()
+       }
     
 }
