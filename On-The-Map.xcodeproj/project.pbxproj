@@ -19,6 +19,7 @@
 		92439315250E8A05005F6354 /* UdacityLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92439314250E8A05005F6354 /* UdacityLogin.swift */; };
 		925733E824CE161800A09B77 /* StudentsLocationTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925733E724CE161800A09B77 /* StudentsLocationTableVC.swift */; };
 		92E6F8EE24FBD62C00370198 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E6F8ED24FBD62C00370198 /* LoginVC.swift */; };
+		92F366FE251A8AC60063A22F /* UdacityError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F366FD251A8AC60063A22F /* UdacityError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		92439314250E8A05005F6354 /* UdacityLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityLogin.swift; sourceTree = "<group>"; };
 		925733E724CE161800A09B77 /* StudentsLocationTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsLocationTableVC.swift; sourceTree = "<group>"; };
 		92E6F8ED24FBD62C00370198 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		92F366FD251A8AC60063A22F /* UdacityError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				922436A224C8D8AD001129AB /* StudentLocation.swift */,
 				922436A424C8D8CA001129AB /* StudentList.swift */,
 				92439314250E8A05005F6354 /* UdacityLogin.swift */,
+				92F366FD251A8AC60063A22F /* UdacityError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				92E6F8EE24FBD62C00370198 /* LoginVC.swift in Sources */,
 				9224368A24C8D759001129AB /* AppDelegate.swift in Sources */,
 				922436A524C8D8CA001129AB /* StudentList.swift in Sources */,
+				92F366FE251A8AC60063A22F /* UdacityError.swift in Sources */,
 				925733E824CE161800A09B77 /* StudentsLocationTableVC.swift in Sources */,
 				922436A324C8D8AD001129AB /* StudentLocation.swift in Sources */,
 				9224368C24C8D759001129AB /* SceneDelegate.swift in Sources */,

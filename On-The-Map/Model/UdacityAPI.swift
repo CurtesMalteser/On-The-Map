@@ -27,12 +27,36 @@ class UdacityAPI {
                 return
             }
             
-            if let newData = data { // Handle success...
-                sucessHandler(newData)
+            if let response = response as? HTTPURLResponse {
+                if let newData = data { // Handle success...
+                    let subData = newData.subdata(in: 5..<newData.count) /* subset response data! */
+                    
+                    if(response.statusCode == 200) {
+                        sucessHandler(subData)
+                    } else {
+                        let udacityError = handleUdacityError(subData)
+                        errorHandler(udacityError)
+                    }
+                    
+                }
             }
         }
         
         task.resume()
+    }
+    
+    /**
+     Convenience function added to generate Udacity API Error and clean the indentation to provide better code readabilty.
+     This happens in cases when the API call is successfful, but the response status code isn't 200 and the message is an error.
+     e.g.: The status code is 403, so the credentials are incorrect.
+     */
+    fileprivate class func handleUdacityError(_ subData: Data) -> Error {
+        do {
+            let udacityError = try JSONDecoder().decode(UdacityError.self, from: subData)
+            return udacityError
+        } catch {
+            return error
+        }
     }
     
     class func initLoginRequest(url: URL, username: String, password: String) -> URLRequest {
@@ -65,7 +89,7 @@ class UdacityAPI {
         
         var request = URLRequest(url:url)
         request.httpMethod = "DELETE"
-    
+        
         let sharedCookieStorage = HTTPCookieStorage.shared
         
         if let xsrfCookie  = sharedCookieStorage.cookies?.filter({$0.name == "XSRF-TOKEN"}).first {

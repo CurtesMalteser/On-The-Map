@@ -41,9 +41,14 @@ class LoginVC:UIViewController {
     
     
     private func onLoginSucess(data: Data) {
-        let newData = data.subdata(in: 5..<data.count) /* subset response data! */
         
-        print(String(data: newData, encoding: .utf8)!)
+        
+        if let data = String(data: data, encoding: .utf8) {
+        
+            print("this is data \(data)")
+        }
+        
+        
         
         DispatchQueue.main.async {
             self.segueOnLoginSuccess()
