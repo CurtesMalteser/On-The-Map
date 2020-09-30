@@ -17,15 +17,15 @@ class MapVC: UIViewController, MKMapViewDelegate {
     @IBAction func logoutButtonAction(_ sender: Any) {
         
         guard let logoutURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
-                   print("Cannot create URL")
-                   return
-               }
+            print("Cannot create URL")
+            return
+        }
         
         let request = UdacityAPI.deleteSessionRequest(url: logoutURL)
         
         UdacityAPI.executeDataTask(request: request,
-        sucessHandler: { data in self.onLogoutSucess(data: data) },
-        errorHandler: { error in print("error \(String(describing: error))")})
+                                   sucessHandler: { data in self.onLogoutSucess(data: data) },
+                                   errorHandler: { error in print("error \(String(describing: error))")})
     }
     
     override func viewDidLoad() {
@@ -63,12 +63,11 @@ class MapVC: UIViewController, MKMapViewDelegate {
     
     private func addStudentsPointAnnotation(_ studentLocationList: StudentList) {
         
-        studentLocationList.results.forEach { studentLocation in
+        let anotations: [MKAnnotation] = studentLocationList.results.map { studentLocation in
             
             print(studentLocation)
             
             let point = MKPointAnnotation()
-            
             
             point.title = "\(studentLocation.firstName) \(studentLocation.lastName)"
                 .trimmingCharacters(in: .whitespaces)
@@ -77,9 +76,10 @@ class MapVC: UIViewController, MKMapViewDelegate {
             
             point.coordinate = CLLocationCoordinate2D(latitude: studentLocation.latitude, longitude: studentLocation.longitude)
             
-            mapView.addAnnotation(point)
-            
+            return point
         }
+        
+        mapView.addAnnotations(anotations)
         
     }
     
@@ -91,8 +91,9 @@ class MapVC: UIViewController, MKMapViewDelegate {
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView!.canShowCallout = true
+            annotationView!.rightCalloutAccessoryView = UIButton(type: .infoLight)
         } else {
             annotationView!.annotation = annotation
         }
@@ -100,25 +101,27 @@ class MapVC: UIViewController, MKMapViewDelegate {
         return annotationView
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView)
-    {
-        if let annotationTitle = view.annotation?.title
-        {
-            print("Click annotation: \(annotationTitle!)")
-        }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        guard let subtitle: String = view.annotation?.subtitle as? String else { return }
+        
+        guard let mediaURL: URL = URL(string: subtitle) else { return }
+        
+        UIApplication.shared.open(mediaURL)
+        
     }
     
-    // MARK: todo - perform segue if logout succeeds
     private func onLogoutSucess(data: Data) {
-       DispatchQueue.main.async {
+        DispatchQueue.main.async {
             self.segueOnLogoutSuccess()
         }
     }
     
+    
     private func segueOnLogoutSuccess() {
-           let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-           self.view.window?.rootViewController = homeViewController
-           self.view.window?.makeKeyAndVisible()
-       }
+        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
+        self.view.window?.rootViewController = homeViewController
+        self.view.window?.makeKeyAndVisible()
+    }
     
 }
