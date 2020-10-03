@@ -55,13 +55,17 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="plus" catalog="system" id="Q1o-XK-EiV"/>
+                            <barButtonItem image="plus" catalog="system" id="Q1o-XK-EiV">
+                                <connections>
+                                    <action selector="segueToAddLocation:" destination="Vdy-sg-Wzx" id="sPZ-C9-Iwz"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="c5s-k0-k07"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="studentLocationTable" destination="RgI-2J-JAW" id="cZq-tM-Hq0"/>
-                        <segue destination="GIw-M7-l4L" kind="show" id="FxW-Td-8bQ"/>
+                        <segue destination="GIw-M7-l4L" kind="show" identifier="segueToAddLocatocation" id="FxW-Td-8bQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jj-Dp-5pV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -246,7 +250,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uYH-nC-2ja"/>
+        <segue reference="FxW-Td-8bQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>

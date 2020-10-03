@@ -17,6 +17,10 @@ class StudentsLocationTableVC:UIViewController, UITableViewDelegate, UITableView
     @IBAction func logoutButtonAction(_ sender: Any) {
          print("logout from table")
      }
+    
+    @IBAction func segueToAddLocation(_ sender: Any) {
+        segueToAddLocationVC()
+    }
      
     
     override func viewDidLoad() {
@@ -73,6 +77,11 @@ class StudentsLocationTableVC:UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
-           
+
        }
+    
+    func segueToAddLocationVC() {
+        self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
+    }
+    
 }
