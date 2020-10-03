@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iSS-va-SF7">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -14,15 +14,15 @@
             <objects>
                 <tableViewController id="Vdy-sg-Wzx" userLabel="Students Location TableVC" customClass="StudentsLocationTableVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RgI-2J-JAW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" textLabel="4AA-PA-shM" detailTextLabel="2Zg-AC-Utd" style="IBUITableViewCellStyleSubtitle" id="Phe-Bd-GYN">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
+                                <rect key="frame" x="0.0" y="28" width="1024" height="55.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Phe-Bd-GYN" id="0AO-nq-MOa">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="55.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="55.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4AA-PA-shM">
@@ -78,7 +78,7 @@
                 <navigationController id="FcE-9p-er5" userLabel="Student Location Table" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="dFo-qh-8gs"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8kr-uK-eQo">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -94,23 +94,23 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="iSS-va-SF7" userLabel="Login View Controller" customClass="LoginVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0rV-3I-NNN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JCL-Aq-dKP">
-                                <rect key="frame" x="48" y="176" width="318" height="34"/>
+                                <rect key="frame" x="48" y="132" width="928" height="34"/>
                                 <accessibility key="accessibilityConfiguration" hint="Email"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="BuP-Ao-EmT">
-                                <rect key="frame" x="48" y="234" width="318" height="34"/>
+                                <rect key="frame" x="48" y="190" width="928" height="34"/>
                                 <accessibility key="accessibilityConfiguration" hint="Password"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN1-0r-5rZ">
-                                <rect key="frame" x="48" y="292" width="318" height="30"/>
+                                <rect key="frame" x="48" y="248" width="928" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Log In"/>
                                 <state key="normal" title="LOG IN"/>
                                 <connections>
@@ -118,7 +118,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Loh-dl-8wm">
-                                <rect key="frame" x="87" y="101" width="240" height="17.5"/>
+                                <rect key="frame" x="87" y="57" width="850" height="17.5"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                         </subviews>
@@ -173,7 +173,7 @@
                 <navigationController id="vJ1-8m-b5z" userLabel="Map" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="map" catalog="system" id="nbC-yR-fPr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JiS-Qq-kOh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -189,11 +189,11 @@
             <objects>
                 <viewController id="hvM-T6-cDq" customClass="MapVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="azl-NA-NHY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IPp-Eb-AJK">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="1251"/>
                                 <connections>
                                     <outlet property="delegate" destination="hvM-T6-cDq" id="ETC-e0-RMK"/>
                                 </connections>
@@ -237,10 +237,50 @@
             <objects>
                 <viewController id="GIw-M7-l4L" customClass="AddLocationVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Zf-si-bH3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rFb-b0-tLY">
+                                <rect key="frame" x="0.0" y="200" width="1024" height="1101"/>
+                            </mapView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-J0-vea" userLabel="Interactions Stack View">
+                                <rect key="frame" x="16" y="66" width="992" height="118"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-1t-tbq" userLabel="Location Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="992" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ItX-ta-jGT" userLabel="Media URL Text Field">
+                                        <rect key="frame" x="0.0" y="42" width="992" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cDo-uR-tLf" userLabel="Find Location Button">
+                                        <rect key="frame" x="0.0" y="84" width="992" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="4cc-Uq-c46"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4cc-Uq-c46" firstAttribute="bottom" secondItem="rFb-b0-tLY" secondAttribute="bottom" id="6A9-mZ-4tM"/>
+                            <constraint firstItem="rFb-b0-tLY" firstAttribute="centerX" secondItem="7Zf-si-bH3" secondAttribute="centerX" id="9Ug-Jq-dGQ"/>
+                            <constraint firstItem="rFb-b0-tLY" firstAttribute="top" secondItem="roQ-J0-vea" secondAttribute="bottom" constant="16" id="CZr-UE-ZTT"/>
+                            <constraint firstItem="roQ-J0-vea" firstAttribute="trailing" secondItem="4cc-Uq-c46" secondAttribute="trailing" constant="-16" id="GAw-W7-UTN"/>
+                            <constraint firstItem="rFb-b0-tLY" firstAttribute="centerX" secondItem="7Zf-si-bH3" secondAttribute="centerX" id="HcL-jE-cfZ"/>
+                            <constraint firstItem="4cc-Uq-c46" firstAttribute="bottom" secondItem="rFb-b0-tLY" secondAttribute="bottom" id="LZc-pt-KJS"/>
+                            <constraint firstItem="rFb-b0-tLY" firstAttribute="centerX" secondItem="7Zf-si-bH3" secondAttribute="centerX" id="QuD-JF-KAj"/>
+                            <constraint firstItem="roQ-J0-vea" firstAttribute="top" secondItem="4cc-Uq-c46" secondAttribute="top" constant="16" id="SPq-Yo-q6B"/>
+                            <constraint firstItem="roQ-J0-vea" firstAttribute="leading" secondItem="4cc-Uq-c46" secondAttribute="leading" constant="16" id="V19-Ci-P2I"/>
+                            <constraint firstItem="rFb-b0-tLY" firstAttribute="leading" secondItem="4cc-Uq-c46" secondAttribute="leading" id="WTL-9M-uaJ"/>
+                            <constraint firstItem="4cc-Uq-c46" firstAttribute="trailing" secondItem="rFb-b0-tLY" secondAttribute="trailing" id="a8k-Ew-1q9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2t6-nh-AQj"/>
                 </viewController>
@@ -260,6 +300,15 @@
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
