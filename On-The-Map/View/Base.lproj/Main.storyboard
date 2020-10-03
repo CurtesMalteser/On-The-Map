@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iSS-va-SF7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iSS-va-SF7">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RgI-2J-JAW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentLocationCell" textLabel="4AA-PA-shM" detailTextLabel="2Zg-AC-Utd" style="IBUITableViewCellStyleSubtitle" id="Phe-Bd-GYN">
                                 <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
@@ -24,7 +26,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4AA-PA-shM">
-                                            <rect key="frame" x="20" y="10" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="20" y="10" width="33" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -59,6 +61,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="studentLocationTable" destination="RgI-2J-JAW" id="cZq-tM-Hq0"/>
+                        <segue destination="GIw-M7-l4L" kind="show" id="FxW-Td-8bQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jj-Dp-5pV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -102,7 +105,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES" textContentType="password"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN1-0r-5rZ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN1-0r-5rZ">
                                 <rect key="frame" x="48" y="292" width="318" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Log In"/>
                                 <state key="normal" title="LOG IN"/>
@@ -115,7 +118,8 @@
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="I8s-kq-hec"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JCL-Aq-dKP" firstAttribute="top" secondItem="Loh-dl-8wm" secondAttribute="bottom" constant="56" id="0Wh-At-YQp"/>
                             <constraint firstItem="I8s-kq-hec" firstAttribute="trailing" secondItem="BuP-Ao-EmT" secondAttribute="trailing" constant="48" id="3fe-qJ-Rrb"/>
@@ -130,7 +134,6 @@
                             <constraint firstItem="BuP-Ao-EmT" firstAttribute="leading" secondItem="I8s-kq-hec" secondAttribute="leading" constant="48" id="cMc-HS-g4Q"/>
                             <constraint firstItem="I8s-kq-hec" firstAttribute="trailing" secondItem="Loh-dl-8wm" secondAttribute="trailing" constant="87" id="csX-RE-uCg"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="I8s-kq-hec"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="JCL-Aq-dKP" id="rm7-6f-zKS"/>
@@ -192,14 +195,14 @@
                                 </connections>
                             </mapView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fTM-eC-AkF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IPp-Eb-AJK" firstAttribute="leading" secondItem="fTM-eC-AkF" secondAttribute="leading" id="47q-qu-LjJ"/>
                             <constraint firstItem="IPp-Eb-AJK" firstAttribute="top" secondItem="fTM-eC-AkF" secondAttribute="top" id="BQB-p7-Nts"/>
                             <constraint firstItem="fTM-eC-AkF" firstAttribute="bottom" secondItem="IPp-Eb-AJK" secondAttribute="bottom" id="mYS-0j-uQa"/>
                             <constraint firstItem="fTM-eC-AkF" firstAttribute="trailing" secondItem="IPp-Eb-AJK" secondAttribute="trailing" id="wEQ-uI-I8w"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fTM-eC-AkF"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="99J-IU-K4f">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="ST7-wJ-Fm6">
@@ -208,24 +211,51 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="plus" catalog="system" id="hfu-ig-Aki"/>
+                            <barButtonItem title="Item" image="plus" catalog="system" id="hfu-ig-Aki">
+                                <connections>
+                                    <action selector="segueToAddLocation:" destination="hvM-T6-cDq" id="6To-op-S8X"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem image="arrow.clockwise" catalog="system" id="UL0-is-wuo"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="IPp-Eb-AJK" id="fII-m0-aew"/>
+                        <segue destination="GIw-M7-l4L" kind="show" identifier="segueToAddLocatocation" id="uYH-nC-2ja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITU-3n-TB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4380" y="-307"/>
         </scene>
+        <!--Add LocationVC-->
+        <scene sceneID="V99-f2-oL1">
+            <objects>
+                <viewController id="GIw-M7-l4L" customClass="AddLocationVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Zf-si-bH3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4cc-Uq-c46"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2t6-nh-AQj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHz-ho-fsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5535" y="67"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uYH-nC-2ja"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
-        <image name="folder.fill" catalog="system" width="128" height="95"/>
+        <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
-        <image name="map" catalog="system" width="128" height="113"/>
+        <image name="map" catalog="system" width="128" height="110"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

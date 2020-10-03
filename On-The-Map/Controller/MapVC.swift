@@ -28,6 +28,10 @@ class MapVC: UIViewController, MKMapViewDelegate {
                                    errorHandler: { error in print("error \(String(describing: error))")})
     }
     
+    @IBAction func segueToAddLocation(_ sender: Any) {
+        segueToAddLocationVC()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -122,6 +126,10 @@ class MapVC: UIViewController, MKMapViewDelegate {
         let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
+    }
+    
+    func segueToAddLocationVC() {
+        self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
     }
     
 }
