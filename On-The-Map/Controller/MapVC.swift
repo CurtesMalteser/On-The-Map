@@ -99,12 +99,8 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
         
         guard let subtitle: String = view.annotation?.subtitle as? String else { return }
         
-        guard let mediaURL: URL = URL(string: subtitle) else { return }
-        
-        UIApplication.shared.open(mediaURL)
+        openBroweserIfValidMediaURL(subtitle)
         
     }
-    
-
     
 }

@@ -9,19 +9,19 @@
 import UIKit
 
 class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDataSource {
-
+    
     private var studentLocationList: [StudentLocation] = []
     
     @IBOutlet var studentLocationTable: UITableView!
     
     @IBAction func logoutButtonAction(_ sender: Any) {
         performLogout()
-     }
+    }
     
     @IBAction func segueToAddLocation(_ sender: Any) {
         segueToAddLocationVC()
     }
-     
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,24 +60,26 @@ class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDa
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       
+        
         return studentLocationList.count
-       }
-       
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-           
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         //StudentLocationCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell")
         cell?.textLabel?.text = studentLocationList[indexPath.row].firstName // todo: Add last name
         cell?.detailTextLabel?.text = studentLocationList[indexPath.row].mediaURL
-      
+        
         return cell!
-       
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    
-
-       }
+        
+        guard let subtitle: String = tableView.cellForRow(at: indexPath)?.detailTextLabel?.text else { return }
+       
+        openBroweserIfValidMediaURL(subtitle)
+    }
     
 }

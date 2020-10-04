@@ -40,4 +40,10 @@ class BaseStudentsVC : UIViewController {
         self.view.window?.makeKeyAndVisible()
     }
     
+    func openBroweserIfValidMediaURL(_ subtitle: String) {
+        guard let mediaURL: URL = URL(string: subtitle) else { return }
+        
+        UIApplication.shared.open(mediaURL)
+    }
+    
 }
