@@ -8,14 +8,14 @@
 
 import UIKit
 
-class StudentsLocationTableVC:UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDataSource {
 
     private var studentLocationList: [StudentLocation] = []
     
     @IBOutlet var studentLocationTable: UITableView!
     
     @IBAction func logoutButtonAction(_ sender: Any) {
-         print("logout from table")
+        performLogout()
      }
     
     @IBAction func segueToAddLocation(_ sender: Any) {
@@ -79,9 +79,5 @@ class StudentsLocationTableVC:UIViewController, UITableViewDelegate, UITableView
     
 
        }
-    
-    func segueToAddLocationVC() {
-        self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
-    }
     
 }

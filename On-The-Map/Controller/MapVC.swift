@@ -9,23 +9,13 @@
 import UIKit
 import MapKit
 
-class MapVC: UIViewController, MKMapViewDelegate {
+class MapVC: BaseStudentsVC, MKMapViewDelegate {
     
     
     @IBOutlet weak var mapView: MKMapView!
     
     @IBAction func logoutButtonAction(_ sender: Any) {
-        
-        guard let logoutURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
-            print("Cannot create URL")
-            return
-        }
-        
-        let request = UdacityAPI.deleteSessionRequest(url: logoutURL)
-        
-        UdacityAPI.executeDataTask(request: request,
-                                   sucessHandler: { data in self.onLogoutSucess(data: data) },
-                                   errorHandler: { error in print("error \(String(describing: error))")})
+        performLogout()
     }
     
     @IBAction func segueToAddLocation(_ sender: Any) {
@@ -115,21 +105,6 @@ class MapVC: UIViewController, MKMapViewDelegate {
         
     }
     
-    private func onLogoutSucess(data: Data) {
-        DispatchQueue.main.async {
-            self.segueOnLogoutSuccess()
-        }
-    }
-    
-    
-    private func segueOnLogoutSuccess() {
-        let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        self.view.window?.rootViewController = homeViewController
-        self.view.window?.makeKeyAndVisible()
-    }
-    
-    func segueToAddLocationVC() {
-        self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
-    }
+
     
 }
