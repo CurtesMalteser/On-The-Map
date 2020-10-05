@@ -10,6 +10,39 @@ import UIKit
 
 class BaseStudentsVC : UIViewController {
     
+     var studentLocationList: [StudentLocation] = []
+    
+    func getStudentsList(sucessHandler: @escaping (StudentList) -> Void) {
+        guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
+            print("Cannot create URL")
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: studentsURL) {
+            (data, response, error) in
+            guard let data = data else {
+                print("no data")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let studentLocationList = try decoder.decode(StudentList.self, from: data)
+                DispatchQueue.main.async {
+                    self.studentLocationList = studentLocationList.results
+                    
+                    sucessHandler(studentLocationList)
+                }
+            } catch {
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
     func segueToAddLocationVC() {
         self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
     }

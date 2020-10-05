@@ -25,34 +25,7 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
-            print("Cannot create URL")
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: studentsURL) {
-            (data, response, error) in
-            guard let data = data else {
-                print("no data")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let studentLocationList = try decoder.decode(StudentList.self, from: data)
-                DispatchQueue.main.async {
-                    self.addStudentsPointAnnotation(studentLocationList)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-        
-        task.resume()
-        
+        getStudentsList(sucessHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)})
     }
     
     private func addStudentsPointAnnotation(_ studentLocationList: StudentList) {
