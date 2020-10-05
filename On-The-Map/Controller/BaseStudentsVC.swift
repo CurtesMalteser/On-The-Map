@@ -23,29 +23,14 @@ class BaseStudentsVC : UIViewController {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: studentsURL) {
-            (data, response, error) in
-            guard let data = data else {
-                print("no data")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let studentLocationList = try decoder.decode(StudentList.self, from: data)
-                DispatchQueue.main.async {
-                    self.studentLocationList = studentLocationList.results
-                    
-                    sucessHandler(self.studentLocationList)
-                }
-            } catch {
-                print(error)
-            }
-            
-        }
-        
-        task.resume()
+        UdacityAPI.getStudentsDataTask(url: studentsURL,
+                                       sucessHandler: {studentLocationList in
+                                        DispatchQueue.main.async {
+                                            self.studentLocationList = studentLocationList
+                                            sucessHandler(self.studentLocationList)
+                                        }
+                                       },
+                                       errorHandler: { error in print("error \(String(describing: error))")})
     }
     
     func segueToAddLocationVC() {

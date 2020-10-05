@@ -45,6 +45,29 @@ class UdacityAPI {
         task.resume()
     }
     
+    class func getStudentsDataTask(url: URL, sucessHandler: @escaping ([StudentLocation]) -> Void, errorHandler: @escaping (Error?) -> Void) {
+      
+        let task = URLSession.shared.dataTask(with: url) {
+            (data, response, error) in
+            guard let data = data else {
+                print("no data")
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let studentLocationList = try decoder.decode(StudentList.self, from: data)
+                sucessHandler(studentLocationList.results)
+            } catch {
+                errorHandler(error)
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
     /**
      Convenience function added to generate Udacity API Error and clean the indentation to provide better code readabilty.
      This happens in cases when the API call is successfful, but the response status code isn't 200 and the message is an error.
