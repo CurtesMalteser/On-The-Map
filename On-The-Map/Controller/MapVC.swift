@@ -32,12 +32,9 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
         
         let anotations: [MKAnnotation] = studentLocationList.map { studentLocation in
             
-            print(studentLocation)
-            
             let point = MKPointAnnotation()
             
-            point.title = "\(studentLocation.firstName) \(studentLocation.lastName)"
-                .trimmingCharacters(in: .whitespaces)
+            point.title = parseStundentName(studentLocation)
             
             point.subtitle = studentLocation.mediaURL
             

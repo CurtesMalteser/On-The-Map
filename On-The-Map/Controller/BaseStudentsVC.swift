@@ -10,6 +10,11 @@ import UIKit
 
 class BaseStudentsVC : UIViewController {
     
+    let parseStundentName: (StudentLocation) -> String = { studentLocation in
+        "\(studentLocation.firstName) \(studentLocation.lastName)"
+            .trimmingCharacters(in: .whitespaces)
+    }
+    
     var studentLocationList: [StudentLocation] = []
     
     func getStudentsList(sucessHandler: @escaping ([StudentLocation]) -> Void) {

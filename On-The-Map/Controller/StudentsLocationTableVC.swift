@@ -38,7 +38,11 @@ class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDa
         
         //StudentLocationCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "StudentLocationCell")
-        cell?.textLabel?.text = studentLocationList[indexPath.row].firstName // todo: Add last name
+        
+        let studentLocation = studentLocationList[indexPath.row]
+        
+        cell?.textLabel?.text = parseStundentName(studentLocation)
+        
         cell?.detailTextLabel?.text = studentLocationList[indexPath.row].mediaURL
         
         return cell!
@@ -48,7 +52,7 @@ class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         guard let subtitle: String = tableView.cellForRow(at: indexPath)?.detailTextLabel?.text else { return }
-       
+        
         openBroweserIfValidMediaURL(subtitle)
     }
     
