@@ -28,9 +28,9 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
         getStudentsList(sucessHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)})
     }
     
-    private func addStudentsPointAnnotation(_ studentLocationList: StudentList) {
+    private func addStudentsPointAnnotation(_ studentLocationList: [StudentLocation]) {
         
-        let anotations: [MKAnnotation] = studentLocationList.results.map { studentLocation in
+        let anotations: [MKAnnotation] = studentLocationList.map { studentLocation in
             
             print(studentLocation)
             

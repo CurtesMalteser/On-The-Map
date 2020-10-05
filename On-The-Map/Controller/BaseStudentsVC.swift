@@ -10,9 +10,9 @@ import UIKit
 
 class BaseStudentsVC : UIViewController {
     
-     var studentLocationList: [StudentLocation] = []
+    var studentLocationList: [StudentLocation] = []
     
-    func getStudentsList(sucessHandler: @escaping (StudentList) -> Void) {
+    func getStudentsList(sucessHandler: @escaping ([StudentLocation]) -> Void) {
         guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
             print("Cannot create URL")
             return
@@ -32,7 +32,7 @@ class BaseStudentsVC : UIViewController {
                 DispatchQueue.main.async {
                     self.studentLocationList = studentLocationList.results
                     
-                    sucessHandler(studentLocationList)
+                    sucessHandler(self.studentLocationList)
                 }
             } catch {
                 print(error)
