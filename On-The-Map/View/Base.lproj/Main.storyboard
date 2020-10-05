@@ -262,6 +262,9 @@
                                         <rect key="frame" x="0.0" y="84" width="382" height="34"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="getGeoCoding:" destination="GIw-M7-l4L" eventType="touchUpInside" id="BdO-dh-9hn"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -283,6 +286,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2t6-nh-AQj"/>
+                    <connections>
+                        <outlet property="addAddressTextField" destination="mmk-1t-tbq" id="zpm-5o-eEt"/>
+                        <outlet property="addUrlTextField" destination="ItX-ta-jGT" id="d78-cR-sdv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHz-ho-fsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
