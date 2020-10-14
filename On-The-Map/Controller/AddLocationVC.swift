@@ -33,14 +33,47 @@ class AddLocationVC : UIViewController {
             if let location = placemarks?.first?.location {
                 let coordinates:CLLocationCoordinate2D = location.coordinate
                 print(coordinates)
+                
+                self.findLocationButton.enablePostLocation()
             }
             
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        findLocationButton.isEnabled = false
-        findLocationButton.alpha = 0.5
+    override func viewWillAppear(_ animated: Bool) {
+        findLocationButton.disableFindLocation()
+        addAddressTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        
     }
     
+    @objc func textFieldDidChange(addAddressTextField: UITextField) {
+        
+        let text = addAddressTextField.text ?? ""
+        if(text.count != 0){
+            findLocationButton.enableFindLocation()
+        } else {
+            findLocationButton.disableFindLocation()
+        }
+        
+    }
+}
+
+fileprivate extension UIButton {
+    func disableFindLocation() {
+        isEnabled = false
+        alpha = 0.5
+        setTitle("Find Location".capitalized, for: UIControl.State.normal)
+    }
+    
+    func enableFindLocation() {
+        isEnabled = true
+        alpha = 1
+        setTitle("Find Location", for: UIControl.State.normal)
+    }
+    
+    func enablePostLocation() {
+        if(isEnabled == false) { isEnabled = true }
+        if(alpha != 1) { alpha = 1 }
+        setTitle("finish".capitalized, for: UIControl.State.normal)
+    }
 }
