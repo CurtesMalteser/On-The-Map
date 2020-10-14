@@ -15,8 +15,8 @@ class LoginVC:UIViewController {
     @IBOutlet weak var passwordTextFied: UITextField!
     
     @IBAction func performLogin(_ sender: Any) {
-        
-        guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
+        segueOnLoginSuccess()
+        /*guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
             print("Cannot create URL")
             return
         }
@@ -53,7 +53,7 @@ class LoginVC:UIViewController {
                                     }
                                     
                                     
-                                   })
+                                   })*/
     }
     
     private func showErrorAlert(message: String) {
