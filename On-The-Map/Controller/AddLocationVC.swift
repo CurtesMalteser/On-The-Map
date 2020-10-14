@@ -15,6 +15,8 @@ class AddLocationVC : UIViewController {
     
     @IBOutlet weak var addUrlTextField: UITextField!
     
+    @IBOutlet weak var findLocationButton: UIButton!
+    
     @IBAction func getGeoCoding(_ sender: Any) {
         
         guard let address = addAddressTextField.text else {
@@ -34,6 +36,11 @@ class AddLocationVC : UIViewController {
             }
             
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        findLocationButton.isEnabled = false
+        findLocationButton.alpha = 0.5
     }
     
 }
