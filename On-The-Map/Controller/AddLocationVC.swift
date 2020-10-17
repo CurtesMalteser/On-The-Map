@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class AddLocationVC : UIViewController {
     
@@ -23,6 +24,8 @@ Please try to change address.
     @IBOutlet weak var addUrlTextField: UITextField!
     
     @IBOutlet weak var findLocationButton: UIButton!
+    
+    @IBOutlet weak var locationMapView: MKMapView!
     
     @IBAction func getGeoCoding(_ sender: Any) {
         
@@ -42,6 +45,8 @@ Please try to change address.
                     let coordinates:CLLocationCoordinate2D = location.coordinate
                     print(coordinates)
                     
+                    self.locationMapView.positionOnMapCoordinates(coordinates)
+                    
                     self.locationState = self.findLocationButton.enablePostLocation(address, coordinates: coordinates)
                 }
                 
@@ -55,7 +60,6 @@ Please try to change address.
     override func viewWillAppear(_ animated: Bool) {
         locationState = findLocationButton.disableFindLocation()
         addAddressTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
     }
     
     @objc func textFieldDidChange(addAddressTextField: UITextField) {
@@ -97,5 +101,19 @@ fileprivate extension UIButton {
         if(alpha != 1) { alpha = 1 }
         setTitle("finish".capitalized, for: UIControl.State.normal)
         return ReadyLocationState(address: address, coordinates: coordinates)
+    }
+}
+
+fileprivate extension MKMapView {
+    func positionOnMapCoordinates(_ coordinates: CLLocationCoordinate2D) {
+        
+        let pin = MKPointAnnotation()
+        pin.coordinate = coordinates
+        
+        let region = MKCoordinateRegion(center: pin.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        
+        setRegion(region, animated: true)
+        
+        addAnnotation(pin)
     }
 }

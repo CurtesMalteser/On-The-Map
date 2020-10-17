@@ -291,6 +291,7 @@
                         <outlet property="addAddressTextField" destination="mmk-1t-tbq" id="zpm-5o-eEt"/>
                         <outlet property="addUrlTextField" destination="ItX-ta-jGT" id="d78-cR-sdv"/>
                         <outlet property="findLocationButton" destination="cDo-uR-tLf" id="HXC-H8-OrY"/>
+                        <outlet property="locationMapView" destination="rFb-b0-tLY" id="765-W8-jK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHz-ho-fsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -299,7 +300,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FxW-Td-8bQ"/>
+        <segue reference="uYH-nC-2ja"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
