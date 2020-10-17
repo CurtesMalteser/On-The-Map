@@ -13,6 +13,11 @@ class AddLocationVC : UIViewController {
     
     var locationState: LocationState = EmptyLocationState()
     
+    lazy var locationErrorMessage = """
+Unable to find your location.
+Please try to change address.
+"""
+    
     @IBOutlet weak var addAddressTextField: UITextField!
     
     @IBOutlet weak var addUrlTextField: UITextField!
@@ -28,8 +33,8 @@ class AddLocationVC : UIViewController {
             
             CLGeocoder().geocodeAddressString(address) {placemarks, error in
                 
-                if let error = error {
-                    print("Error", error)
+                if error != nil {
+                    self.showErrorAlert(message: self.locationErrorMessage)
                     return
                 }
                 
@@ -63,6 +68,13 @@ class AddLocationVC : UIViewController {
         }
         
     }
+    
+    private func showErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 fileprivate extension UIButton {

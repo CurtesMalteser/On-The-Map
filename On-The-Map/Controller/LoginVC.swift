@@ -15,45 +15,46 @@ class LoginVC:UIViewController {
     @IBOutlet weak var passwordTextFied: UITextField!
     
     @IBAction func performLogin(_ sender: Any) {
-        
-        guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
-            print("Cannot create URL")
-            return
-        }
-        
-        guard let email = emailTextField.text else {
-            // todo -> add validator and show message
-            return
-        }
-        
-        guard let password = passwordTextFied.text else {
-            // todo -> show message if empty
-            return
-        }
-        
-        let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
-        
-        UdacityAPI.executeDataTask(request: request,
-                                   sucessHandler: { data in self.onLoginSucess(data: data) },
-                                   errorHandler: { error in
-                                    
-                                    guard let udacityError = error as? UdacityError else {
-                                        self.showErrorAlert(message:  error?.localizedDescription ?? "Undefined Error")
-                                        return
-                                    }
-                                    
-                                    if(udacityError.status == 403) {
-                                        self.showErrorAlert(message:  udacityError.error)
-                                    } else {
-                                        print("error \(udacityError.error) \(udacityError.status)")
-                                        // todo -> check if there are other errors, but 400 is empty credentials and
-                                        // is better avoind unecessary api call, byt checking if credentials are valid email
-                                        // or pass isn't empty. Extract to funcrion
-                                        self.showErrorAlert(message:  udacityError.error)
-                                    }
-                                    
-                                    
-                                   })
+        segueOnLoginSuccess()
+//
+//        guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
+//            print("Cannot create URL")
+//            return
+//        }
+//
+//        guard let email = emailTextField.text else {
+//            // todo -> add validator and show message
+//            return
+//        }
+//
+//        guard let password = passwordTextFied.text else {
+//            // todo -> show message if empty
+//            return
+//        }
+//
+//        let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
+//
+//        UdacityAPI.executeDataTask(request: request,
+//                                   sucessHandler: { data in self.onLoginSucess(data: data) },
+//                                   errorHandler: { error in
+//
+//                                    guard let udacityError = error as? UdacityError else {
+//                                        self.showErrorAlert(message:  error?.localizedDescription ?? "Undefined Error")
+//                                        return
+//                                    }
+//
+//                                    if(udacityError.status == 403) {
+//                                        self.showErrorAlert(message:  udacityError.error)
+//                                    } else {
+//                                        print("error \(udacityError.error) \(udacityError.status)")
+//                                        // todo -> check if there are other errors, but 400 is empty credentials and
+//                                        // is better avoind unecessary api call, byt checking if credentials are valid email
+//                                        // or pass isn't empty. Extract to funcrion
+//                                        self.showErrorAlert(message:  udacityError.error)
+//                                    }
+//
+//
+//                                   })
     }
     
     private func showErrorAlert(message: String) {
