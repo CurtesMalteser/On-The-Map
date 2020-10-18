@@ -15,33 +15,44 @@ class LoginVC:UIViewController {
     @IBOutlet weak var passwordTextFied: UITextField!
     
     @IBAction func performLogin(_ sender: Any) {
-
+        
         guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
             print("Cannot create URL")
             return
         }
-
+        
         guard let email = emailTextField.text else {
             // todo -> add validator and show message
             return
         }
-
+        
         guard let password = passwordTextFied.text else {
             // todo -> show message if empty
             return
         }
-
+        
         let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
-
+        
         UdacityAPI.executeDataTask(request: request,
-                                   sucessHandler: { data in self.onLoginSucess(data: data) },
+                                   sucessHandler: { data in
+                                    
+                                    let decoder = JSONDecoder()
+                                    
+                                    do {
+                                        let studentSession = try decoder.decode(StudentSession.self, from: data)
+                                        self.onLoginSucess(data: studentSession)
+                                    } catch {
+                                        self.showErrorAlert(message: self.sessionErrorMessage)
+                                    }
+                                   },
+                                   
                                    errorHandler: { error in
-
+                                    
                                     guard let udacityError = error as? UdacityError else {
                                         self.showErrorAlert(message:  error?.localizedDescription ?? "Undefined Error")
                                         return
                                     }
-
+                                    
                                     if(udacityError.status == 403) {
                                         self.showErrorAlert(message:  udacityError.error)
                                     } else {
@@ -51,10 +62,15 @@ class LoginVC:UIViewController {
                                         // or pass isn't empty. Extract to funcrion
                                         self.showErrorAlert(message:  udacityError.error)
                                     }
-
-
+                                    
+                                    
                                    })
     }
+    
+    private lazy var sessionErrorMessage = """
+    Invalid Session response.
+    Please try login again.
+    """
     
     private func showErrorAlert(message: String) {
         DispatchQueue.main.async {
@@ -66,7 +82,7 @@ class LoginVC:UIViewController {
     
     
     
-    private func onLoginSucess(data: Data) {
+    private func onLoginSucess(data: StudentSession) {
         DispatchQueue.main.async {
             self.segueOnLoginSuccess()
         }

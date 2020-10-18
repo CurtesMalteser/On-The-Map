@@ -13,5 +13,7 @@ class StudentRepository {
     var studentLocationList: [StudentLocation] = []
     
     static let sharedInstance = StudentRepository()
+    
+    private init() { /*Intentionally lef empty.*/ }
 
 }

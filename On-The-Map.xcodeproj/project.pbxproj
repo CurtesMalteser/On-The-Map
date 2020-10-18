@@ -23,6 +23,7 @@
 		92F366FE251A8AC60063A22F /* UdacityError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F366FD251A8AC60063A22F /* UdacityError.swift */; };
 		E12E6B27252A59BB00D55FE5 /* BaseStudentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12E6B26252A59BB00D55FE5 /* BaseStudentsVC.swift */; };
 		E1AD9605253C7EBC0063A73C /* StudentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD9604253C7EBC0063A73C /* StudentRepository.swift */; };
+		E1AD9609253C88290063A73C /* StudentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AD9608253C88290063A73C /* StudentSession.swift */; };
 		E1D6F06B253793E80051D706 /* LocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D6F06A253793E80051D706 /* LocationState.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		92F366FD251A8AC60063A22F /* UdacityError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityError.swift; sourceTree = "<group>"; };
 		E12E6B26252A59BB00D55FE5 /* BaseStudentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStudentsVC.swift; sourceTree = "<group>"; };
 		E1AD9604253C7EBC0063A73C /* StudentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentRepository.swift; sourceTree = "<group>"; };
+		E1AD9608253C88290063A73C /* StudentSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentSession.swift; sourceTree = "<group>"; };
 		E1D6F06A253793E80051D706 /* LocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				92439314250E8A05005F6354 /* UdacityLogin.swift */,
 				92F366FD251A8AC60063A22F /* UdacityError.swift */,
 				E1D6F06A253793E80051D706 /* LocationState.swift */,
+				E1AD9608253C88290063A73C /* StudentSession.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				9224368E24C8D759001129AB /* MapVC.swift in Sources */,
 				92E6F8EE24FBD62C00370198 /* LoginVC.swift in Sources */,
 				9224368A24C8D759001129AB /* AppDelegate.swift in Sources */,
+				E1AD9609253C88290063A73C /* StudentSession.swift in Sources */,
 				922436A524C8D8CA001129AB /* StudentList.swift in Sources */,
 				92F366FE251A8AC60063A22F /* UdacityError.swift in Sources */,
 				E1D6F06B253793E80051D706 /* LocationState.swift in Sources */,
