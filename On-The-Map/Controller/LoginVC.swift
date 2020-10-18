@@ -34,9 +34,8 @@ class LoginVC:UIViewController {
         
         func getProfileData(_ studentSession: StudentSession) {
             UdacityAPI.onLoginSucessGetProfileDataTask(studentSession: studentSession,
-                                                   sucessHandler: { studentSession in
-                                                    StudentRepository.sharedInstance.studentSession = studentSession
-                                                    self.onLoginSucess(studentSession: studentSession)
+                                                   sucessHandler: { studentProfile in
+                                                    self.onLoginSucess(studentProfile)
                                                    },
                                                    errorHandler: {_ in self.showErrorAlert(message: self.sessionErrorMessage)})
         }
@@ -94,9 +93,9 @@ class LoginVC:UIViewController {
     
     
     
-    private func onLoginSucess(studentSession: StudentSession) {
+    private func onLoginSucess(_ studentProfile: StudentProfile) {
         DispatchQueue.main.async {
-            StudentRepository.sharedInstance.studentSession = studentSession
+            StudentRepository.sharedInstance.studentProfile = studentProfile
             self.segueOnLoginSuccess()
         }
     }

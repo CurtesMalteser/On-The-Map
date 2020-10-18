@@ -60,8 +60,6 @@ Please try to change address.
     override func viewWillAppear(_ animated: Bool) {
         locationState = findLocationButton.disableFindLocation()
         addAddressTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
-        
-        print("user session \(StudentRepository.sharedInstance.studentSession)")
     }
     
     @objc func textFieldDidChange(addAddressTextField: UITextField) {

@@ -127,7 +127,7 @@ class UdacityAPI {
     
     class func onLoginSucessGetProfileDataTask(
         studentSession: StudentSession,
-        sucessHandler: @escaping (StudentSession) -> Void,
+        sucessHandler: @escaping (StudentProfile) -> Void,
         errorHandler: @escaping (Error?) -> Void) {
         
         guard let udacityUserDataBaseURL = UdacityAPI.Endpoint.udacityUserDataURL.url else {
@@ -146,10 +146,23 @@ class UdacityAPI {
                 return
             }
             
-            let newData = data?.udacityData() /* subset response data! */
-            print(String(data: newData!, encoding: .utf8)!)
-            
-            sucessHandler(studentSession)
+            if let newData = data?.udacityData() /* subset response data! */ {
+                print(String(data: newData, encoding: .utf8)!)
+                
+                
+                let decoder = JSONDecoder()
+                
+                do {
+                    let userData = try decoder.decode(PublicUserData.self, from: newData)
+                    
+                    sucessHandler(StudentProfile(
+                        firstName: userData.firstName, lastName: userData.lastName, uniqueKey: studentSession.account.key
+                    ))
+                    
+                } catch {
+                    errorHandler(error)
+                }
+            }
             
         }
         

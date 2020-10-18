@@ -43,11 +43,11 @@ struct PublicUserData: Codable {
     }
 }
 
-// MARK: PublicUserData
+// MARK: StudentProfile
 /**
  Model to keep in memory successful login, to be used to build POST/PUT Student Location Request.
  */
-struct UserProfile: Codable {
+struct StudentProfile: Codable {
     let firstName: String
     let lastName :String
     let uniqueKey: String

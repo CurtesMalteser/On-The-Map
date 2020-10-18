@@ -12,7 +12,7 @@ class StudentRepository {
     
     var studentLocationList: [StudentLocation] = []
     
-    var studentSession: StudentSession?
+    var studentProfile: StudentProfile?
     
     static let sharedInstance = StudentRepository()
     
