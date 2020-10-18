@@ -40,7 +40,7 @@ class LoginVC:UIViewController {
                                     
                                     do {
                                         let studentSession = try decoder.decode(StudentSession.self, from: data)
-                                        self.onLoginSucess(data: studentSession)
+                                        self.onLoginSucess(studentSession: studentSession)
                                     } catch {
                                         self.showErrorAlert(message: self.sessionErrorMessage)
                                     }
@@ -82,8 +82,9 @@ class LoginVC:UIViewController {
     
     
     
-    private func onLoginSucess(data: StudentSession) {
+    private func onLoginSucess(studentSession: StudentSession) {
         DispatchQueue.main.async {
+            StudentRepository.sharedInstance.studentSession = studentSession
             self.segueOnLoginSuccess()
         }
     }
