@@ -25,7 +25,7 @@ class LoginVC:UIViewController {
             // todo -> add validator and show message
             return
         }
-        
+
         guard let password = passwordTextFied.text else {
             // todo -> show message if empty
             return
@@ -85,6 +85,28 @@ class LoginVC:UIViewController {
     private func onLoginSucess(studentSession: StudentSession) {
         DispatchQueue.main.async {
             StudentRepository.sharedInstance.studentSession = studentSession
+            
+            guard let udacityUserDataBaseURL = UdacityAPI.Endpoint.udacityUserDataURL.url else {
+                print("Cannot create URL")
+                return
+            }
+            
+            
+            
+            print("udacityUserDataBaseURL \(udacityUserDataBaseURL.appendingPathComponent("ok"))")
+            
+            let request = URLRequest(url: udacityUserDataBaseURL.appendingPathComponent(studentSession.session.id))
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { data, response, error in
+              if error != nil { // Handle error...
+                  return
+              }
+              
+                let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
+              print(String(data: newData!, encoding: .utf8)!)
+            }
+            task.resume()
+            
             self.segueOnLoginSuccess()
         }
     }

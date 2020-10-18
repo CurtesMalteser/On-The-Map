@@ -16,6 +16,8 @@ class UdacityAPI {
         
         case udacitySessionURL = "https://onthemap-api.udacity.com/v1/session"
         
+        case udacityUserDataURL = "https://onthemap-api.udacity.com/v1/users"
+        
         var url : URL? {return URL(string: self.rawValue)}
         
     }

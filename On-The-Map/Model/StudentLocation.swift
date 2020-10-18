@@ -18,5 +18,4 @@ struct StudentLocation: Codable {
     let latitude: Double
     let longitude: Double
     let createdAt: String
-    //let ACL: String
 }
