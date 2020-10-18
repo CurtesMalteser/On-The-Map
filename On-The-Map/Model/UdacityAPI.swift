@@ -125,4 +125,36 @@ class UdacityAPI {
         
     }
     
+    class func onLoginSucess(
+        studentSession: StudentSession,
+        sucessHandler: @escaping (StudentSession) -> Void,
+                             errorHandler: @escaping (Error?) -> Void) {
+            
+            guard let udacityUserDataBaseURL = UdacityAPI.Endpoint.udacityUserDataURL.url else {
+                print("Cannot create URL")
+                return
+            }
+            
+            let request = URLRequest(url: udacityUserDataBaseURL.appendingPathComponent(studentSession.account.key))
+        
+        let session = URLSession.shared
+        
+            let task = session.dataTask(with: request) { data, response, error in
+              
+                if error != nil {
+                    errorHandler(error)
+                    return
+                }
+              
+                let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
+              print(String(data: newData!, encoding: .utf8)!)
+                
+                sucessHandler(studentSession)
+                
+            }
+        
+            task.resume()
+            
+    }
+    
 }
