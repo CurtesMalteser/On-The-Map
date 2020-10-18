@@ -31,6 +31,16 @@ class LoginVC:UIViewController {
             return
         }
         
+        
+        func getProfileData(_ studentSession: StudentSession) {
+            UdacityAPI.onLoginSucessGetProfileDataTask(studentSession: studentSession,
+                                                   sucessHandler: { studentSession in
+                                                    StudentRepository.sharedInstance.studentSession = studentSession
+                                                    self.onLoginSucess(studentSession: studentSession)
+                                                   },
+                                                   errorHandler: {_ in self.showErrorAlert(message: self.sessionErrorMessage)})
+        }
+        
         let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
         
         UdacityAPI.executeDataTask(request: request,
@@ -41,12 +51,7 @@ class LoginVC:UIViewController {
                                     do {
                                         let studentSession = try decoder.decode(StudentSession.self, from: data)
                                         
-                                        UdacityAPI.onLoginSucess(studentSession: studentSession,
-                                                                 sucessHandler: { studentSession in
-                                                                    StudentRepository.sharedInstance.studentSession = studentSession
-                                                                    self.onLoginSucess(studentSession: studentSession)
-                                                                 },
-                                                                 errorHandler: {_ in self.showErrorAlert(message: self.sessionErrorMessage)})
+                                        getProfileData(studentSession)
                                     
                                     } catch {
                                         self.showErrorAlert(message: self.sessionErrorMessage)

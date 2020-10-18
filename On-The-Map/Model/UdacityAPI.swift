@@ -31,7 +31,7 @@ class UdacityAPI {
             
             if let response = response as? HTTPURLResponse {
                 if let newData = data { // Handle success...
-                    let subData = newData.subdata(in: 5..<newData.count) /* subset response data! */
+                    let subData = newData.udacityData() /* subset response data! */
                     
                     if(response.statusCode == 200) {
                         sucessHandler(subData)
@@ -48,7 +48,7 @@ class UdacityAPI {
     }
     
     class func getStudentsDataTask(url: URL, sucessHandler: @escaping ([StudentLocation]) -> Void, errorHandler: @escaping (Error?) -> Void) {
-      
+        
         let task = URLSession.shared.dataTask(with: url) {
             (data, response, error) in
             guard let data = data else {
@@ -97,7 +97,7 @@ class UdacityAPI {
             let studentLocationList = try JSONEncoder().encode(
                 UdacityLogin(udacity: UdacityLoginBody(
                     username: username, password: password
-                    )
+                )
                 )
             )
             
@@ -125,36 +125,42 @@ class UdacityAPI {
         
     }
     
-    class func onLoginSucess(
+    class func onLoginSucessGetProfileDataTask(
         studentSession: StudentSession,
         sucessHandler: @escaping (StudentSession) -> Void,
-                             errorHandler: @escaping (Error?) -> Void) {
-            
-            guard let udacityUserDataBaseURL = UdacityAPI.Endpoint.udacityUserDataURL.url else {
-                print("Cannot create URL")
-                return
-            }
-            
-            let request = URLRequest(url: udacityUserDataBaseURL.appendingPathComponent(studentSession.account.key))
+        errorHandler: @escaping (Error?) -> Void) {
+        
+        guard let udacityUserDataBaseURL = UdacityAPI.Endpoint.udacityUserDataURL.url else {
+            print("Cannot create URL")
+            return
+        }
+        
+        let request = URLRequest(url: udacityUserDataBaseURL.appendingPathComponent(studentSession.account.key))
         
         let session = URLSession.shared
         
-            let task = session.dataTask(with: request) { data, response, error in
-              
-                if error != nil {
-                    errorHandler(error)
-                    return
-                }
-              
-                let newData = data?.subdata(in: 5..<data!.count) /* subset response data! */
-              print(String(data: newData!, encoding: .utf8)!)
-                
-                sucessHandler(studentSession)
-                
-            }
-        
-            task.resume()
+        let task = session.dataTask(with: request) { data, response, error in
             
+            if error != nil {
+                errorHandler(error)
+                return
+            }
+            
+            let newData = data?.udacityData() /* subset response data! */
+            print(String(data: newData!, encoding: .utf8)!)
+            
+            sucessHandler(studentSession)
+            
+        }
+        
+        task.resume()
+        
     }
     
+}
+
+fileprivate extension Data {
+    func udacityData() -> Data {
+        subdata(in: 5..<count)
+    }
 }

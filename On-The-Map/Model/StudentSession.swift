@@ -8,6 +8,10 @@
 
 import Foundation
 
+// MARK: StudentSession
+/**
+ Model used to parse sucessful login response.
+ */
 struct StudentSession: Codable {
     let account: Account
     let session : Session
@@ -22,4 +26,29 @@ struct Account: Codable {
 struct Session: Codable {
     let id: String
     let expiration: String
+}
+
+// MARK: PublicUserData
+/**
+ Model used to parse the randomized fake user data after successful login.
+ */
+struct PublicUserData: Codable {
+    
+    let firstName: String
+    let lastName :String
+    
+    enum CodingKeys: String, CodingKey {
+        case firstName = "first_name"
+        case lastName = "last_name"
+    }
+}
+
+// MARK: PublicUserData
+/**
+ Model to keep in memory successful login, to be used to build POST/PUT Student Location Request.
+ */
+struct UserProfile: Codable {
+    let firstName: String
+    let lastName :String
+    let uniqueKey: String
 }
