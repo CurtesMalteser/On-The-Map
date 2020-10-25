@@ -66,8 +66,7 @@ class BaseStudentsVC : UIViewController {
     
     private func onLogoutSucess() {
         DispatchQueue.main.async {
-            StudentRepository.sharedInstance.studentLocationList = []
-            StudentRepository.sharedInstance.studentProfile = nil
+            StudentRepository.sharedInstance.clear()
             self.segueOnLogoutSuccess()
         }
     }

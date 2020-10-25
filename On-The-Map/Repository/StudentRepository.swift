@@ -17,5 +17,10 @@ class StudentRepository {
     static let sharedInstance = StudentRepository()
     
     private init() { /*Intentionally lef empty.*/ }
+    
+    func clear() {
+        studentLocationList = []
+        studentProfile = nil
+    }
 
 }
