@@ -20,12 +20,17 @@ class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDa
         segueToAddLocationVC()
     }
     
+    @IBAction func reloadStudentsLocation(_ sender: Any) {
+        getStudentsList(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
-        getStudentsList(sucessHandler: {_ in self.studentLocationTable.reloadData()})
+        getStudentsList()
+    }
+    
+    private func getStudentsList(_ reset: Bool = false) {
+        getStudentsList(sucessHandler: {_ in self.studentLocationTable.reloadData()}, reset: reset)
     }
     
     

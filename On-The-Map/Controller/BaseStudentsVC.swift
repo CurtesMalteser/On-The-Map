@@ -17,16 +17,15 @@ class BaseStudentsVC : UIViewController {
     
     var studentLocationList: [StudentLocation] = []
     
-    func getStudentsList(sucessHandler: @escaping ([StudentLocation]) -> Void) {
+    func getStudentsList(sucessHandler: @escaping ([StudentLocation]) -> Void, reset: Bool) {
         guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
             print("Cannot create URL")
             return
         }
     
-    
         // If studentLocationList doesn't have 100 students that is the rubric requirement, it fetches the new students list from the API
         // else it uses the list in memory.
-        if(StudentRepository.sharedInstance.studentLocationList.count < 100) {
+        if(StudentRepository.sharedInstance.studentLocationList.count < 100 || reset) {
         
         UdacityAPI.getStudentsDataTask(url: studentsURL,
                                        sucessHandler: {studentLocationList in

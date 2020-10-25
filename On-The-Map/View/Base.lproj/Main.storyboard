@@ -60,7 +60,11 @@
                                     <action selector="segueToAddLocation:" destination="Vdy-sg-Wzx" id="sPZ-C9-Iwz"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="c5s-k0-k07"/>
+                            <barButtonItem title="Item" image="arrow.clockwise" catalog="system" id="c5s-k0-k07">
+                                <connections>
+                                    <action selector="reloadStudentsLocation:" destination="Vdy-sg-Wzx" id="fx3-RH-SZJ"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -228,7 +232,11 @@
                                     <action selector="segueToAddLocation:" destination="hvM-T6-cDq" id="6To-op-S8X"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="arrow.clockwise" catalog="system" id="UL0-is-wuo"/>
+                            <barButtonItem image="arrow.clockwise" catalog="system" id="UL0-is-wuo">
+                                <connections>
+                                    <action selector="reloadStudentsLocation:" destination="hvM-T6-cDq" id="x21-Pg-mQr"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -308,7 +316,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="uYH-nC-2ja"/>
+        <segue reference="FxW-Td-8bQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>

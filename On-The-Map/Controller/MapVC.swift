@@ -22,12 +22,19 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
         segueToAddLocationVC()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        getStudentsList(sucessHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)})
+    @IBAction func reloadStudentsLocation(_ sender: Any) {
+        getStudentsList(true)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        getStudentsList()
+    }
+    
+    private func getStudentsList(_ reset: Bool = false) {
+        getStudentsList(sucessHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)}, reset: reset)
+    }
+
     private func addStudentsPointAnnotation(_ studentLocationList: [StudentLocation]) {
         
         let anotations: [MKAnnotation] = studentLocationList.map { studentLocation in
