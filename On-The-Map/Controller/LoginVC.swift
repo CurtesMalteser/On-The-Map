@@ -14,6 +14,8 @@ class LoginVC:UIViewController {
     
     @IBOutlet weak var passwordTextFied: UITextField!
     
+    @IBOutlet weak var loginActivity: UIActivityIndicatorView!
+    
     @IBAction func performLogin(_ sender: Any) {
         
         guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {

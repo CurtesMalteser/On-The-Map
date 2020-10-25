@@ -121,6 +121,10 @@
                                 <rect key="frame" x="87" y="101" width="240" height="17.5"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="RX5-uF-daL" userLabel="Login Activity Indicator">
+                                <rect key="frame" x="188.5" y="342" width="37" height="37"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="I8s-kq-hec"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,6 +133,8 @@
                             <constraint firstItem="I8s-kq-hec" firstAttribute="trailing" secondItem="BuP-Ao-EmT" secondAttribute="trailing" constant="48" id="3fe-qJ-Rrb"/>
                             <constraint firstItem="BuP-Ao-EmT" firstAttribute="top" secondItem="JCL-Aq-dKP" secondAttribute="bottom" constant="24" id="AaS-j9-3ub"/>
                             <constraint firstItem="JCL-Aq-dKP" firstAttribute="leading" secondItem="I8s-kq-hec" secondAttribute="leading" constant="48" id="Bct-kU-qLO"/>
+                            <constraint firstItem="RX5-uF-daL" firstAttribute="top" secondItem="VN1-0r-5rZ" secondAttribute="bottom" constant="20" id="HU3-f7-BIO"/>
+                            <constraint firstItem="RX5-uF-daL" firstAttribute="centerX" secondItem="I8s-kq-hec" secondAttribute="centerX" id="RWc-BW-Tsz"/>
                             <constraint firstItem="Loh-dl-8wm" firstAttribute="leading" secondItem="I8s-kq-hec" secondAttribute="leading" constant="87" id="Sm8-ih-XnM"/>
                             <constraint firstItem="Loh-dl-8wm" firstAttribute="top" secondItem="I8s-kq-hec" secondAttribute="top" constant="56" id="Tux-ZE-Bax"/>
                             <constraint firstItem="I8s-kq-hec" firstAttribute="trailing" secondItem="VN1-0r-5rZ" secondAttribute="trailing" constant="48" id="Wbv-f8-P82"/>
@@ -141,6 +147,7 @@
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="JCL-Aq-dKP" id="rm7-6f-zKS"/>
+                        <outlet property="loginActivity" destination="RX5-uF-daL" id="Nde-92-6Bj"/>
                         <outlet property="passwordTextFied" destination="BuP-Ao-EmT" id="9mJ-i7-wG3"/>
                     </connections>
                 </viewController>
