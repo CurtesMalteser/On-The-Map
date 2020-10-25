@@ -23,6 +23,8 @@ class LoginVC:UIViewController {
             return
         }
         
+        self.setLogginIn(true)
+        
         guard let email = emailTextField.text else {
             // todo -> add validator and show message
             return
@@ -87,6 +89,7 @@ class LoginVC:UIViewController {
     
     private func showErrorAlert(message: String) {
         DispatchQueue.main.async {
+            self.setLogginIn(false)
             let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -98,6 +101,7 @@ class LoginVC:UIViewController {
     private func onLoginSucess(_ studentProfile: StudentProfile) {
         DispatchQueue.main.async {
             StudentRepository.sharedInstance.studentProfile = studentProfile
+            self.setLogginIn(false)
             self.segueOnLoginSuccess()
         }
     }
@@ -107,6 +111,14 @@ class LoginVC:UIViewController {
         let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "HomeTabBarController") as? UITabBarController
         self.view.window?.rootViewController = homeViewController
         self.view.window?.makeKeyAndVisible()
+    }
+    
+    func setLogginIn(_ loggingIn: Bool) {
+        if loggingIn {
+            loginActivity.startAnimating()
+        } else {
+            loginActivity.stopAnimating()
+        }
     }
     
 }
