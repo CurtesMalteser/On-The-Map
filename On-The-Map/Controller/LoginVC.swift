@@ -16,6 +16,8 @@ class LoginVC:UIViewController {
     
     @IBOutlet weak var loginActivity: UIActivityIndicatorView!
     
+    @IBOutlet weak var loginButton: UIButton!
+    
     @IBAction func performLogin(_ sender: Any) {
         
         guard let loginURL = UdacityAPI.Endpoint.udacitySessionURL.url else {
@@ -119,6 +121,10 @@ class LoginVC:UIViewController {
         } else {
             loginActivity.stopAnimating()
         }
+        
+        emailTextField.isEnabled = !loggingIn
+        passwordTextFied.isEnabled = !loggingIn
+        loginButton.isEnabled = !loggingIn
     }
     
 }
