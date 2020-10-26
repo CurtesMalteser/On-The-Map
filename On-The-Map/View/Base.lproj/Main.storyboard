@@ -251,7 +251,7 @@
         <!--Add LocationVC-->
         <scene sceneID="V99-f2-oL1">
             <objects>
-                <viewController id="GIw-M7-l4L" customClass="AddLocationVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddLocationVC" id="GIw-M7-l4L" customClass="AddLocationVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Zf-si-bH3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

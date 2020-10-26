@@ -47,7 +47,18 @@ class BaseStudentsVC : UIViewController {
     }
     
     func segueToAddLocationVC() {
-        self.performSegue(withIdentifier: "segueToAddLocatocation", sender: self)
+
+        guard let addLocationVC = self.storyboard?.instantiateViewController(withIdentifier: "AddLocationVC") else { return }
+        
+        let navController = UINavigationController(rootViewController: addLocationVC)
+        
+        let backItem = UIBarButtonItem()
+        
+        backItem.title = "Cancel"
+        
+        navController.navigationItem.backBarButtonItem = backItem
+
+        self.navigationController?.present(navController, animated: true, completion: {})
     }
     
     func performLogout() {
