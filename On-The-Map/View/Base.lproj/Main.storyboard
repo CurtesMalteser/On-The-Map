@@ -69,7 +69,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="studentLocationTable" destination="RgI-2J-JAW" id="cZq-tM-Hq0"/>
-                        <segue destination="GIw-M7-l4L" kind="presentation" identifier="segueToAddLocatocation" id="FxW-Td-8bQ"/>
+                        <segue destination="crN-4f-1KT" kind="presentation" identifier="segueToAddLocatocation" id="3hc-3p-FLZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Jj-Dp-5pV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -241,26 +241,42 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="IPp-Eb-AJK" id="fII-m0-aew"/>
-                        <segue destination="GIw-M7-l4L" kind="presentation" identifier="segueToAddLocatocation" id="uYH-nC-2ja"/>
+                        <segue destination="crN-4f-1KT" kind="presentation" identifier="segueToAddLocatocation" id="B6F-Kk-rfn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ITU-3n-TB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4380" y="-307"/>
         </scene>
+        <!--Add Location Controller-->
+        <scene sceneID="kqK-NY-ciG">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="crN-4f-1KT" userLabel="Add Location Controller" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3Xc-q2-Hhb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="GIw-M7-l4L" kind="relationship" relationship="rootViewController" id="im5-GR-1A2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nuw-bp-7fp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5504" y="-97"/>
+        </scene>
         <!--Add LocationVC-->
         <scene sceneID="V99-f2-oL1">
             <objects>
                 <viewController storyboardIdentifier="AddLocationVC" id="GIw-M7-l4L" customClass="AddLocationVC" customModule="On_The_Map" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Zf-si-bH3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="rFb-b0-tLY">
-                                <rect key="frame" x="0.0" y="150" width="414" height="658"/>
+                                <rect key="frame" x="0.0" y="238" width="414" height="624"/>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="roQ-J0-vea" userLabel="Interactions Stack View">
-                                <rect key="frame" x="16" y="16" width="382" height="118"/>
+                                <rect key="frame" x="16" y="104" width="382" height="118"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmk-1t-tbq" userLabel="Location Text Field">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="34"/>
@@ -302,7 +318,13 @@
                             <constraint firstItem="4cc-Uq-c46" firstAttribute="trailing" secondItem="rFb-b0-tLY" secondAttribute="trailing" id="a8k-Ew-1q9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2t6-nh-AQj"/>
+                    <navigationItem key="navigationItem" id="WFU-ld-333">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="YQd-rb-iWh">
+                            <connections>
+                                <action selector="cancelAddLocation:" destination="GIw-M7-l4L" id="fMX-M5-WzM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="addAddressTextField" destination="mmk-1t-tbq" id="zpm-5o-eEt"/>
                         <outlet property="addUrlTextField" destination="ItX-ta-jGT" id="d78-cR-sdv"/>
@@ -312,11 +334,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uHz-ho-fsD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5535" y="67"/>
+            <point key="canvasLocation" x="6335" y="-97"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FxW-Td-8bQ"/>
+        <segue reference="B6F-Kk-rfn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>

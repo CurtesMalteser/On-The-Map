@@ -68,14 +68,18 @@ Please try to change address.
             request.httpBody = "{\"uniqueKey\": \"\(studentProfile.uniqueKey)\", \"firstName\": \"\(studentProfile.firstName)\", \"lastName\": \"\(studentProfile.lastName)\",\"mapString\": \"\(readyLocationState.address)\", \"mediaURL\": \"\(url)\",\"latitude\": \(readyLocationState.coordinates.latitude), \"longitude\": \(readyLocationState.coordinates.longitude)}".data(using: .utf8)
             let session = URLSession.shared
             let task = session.dataTask(with: request) { data, response, error in
-              if error != nil { // Handle error…
-                  return
-              }
-              print(String(data: data!, encoding: .utf8)!)
+                if error != nil { // Handle error…
+                    return
+                }
+                print(String(data: data!, encoding: .utf8)!)
             }
             task.resume()
             
         }
+    }
+    
+    @IBAction func cancelAddLocation(_ sender: Any) {
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
