@@ -177,7 +177,26 @@ class UdacityAPI {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.httpBody = "{\"uniqueKey\": \"\(studentProfile.uniqueKey)\", \"firstName\": \"\(studentProfile.firstName)\", \"lastName\": \"\(studentProfile.lastName)\",\"mapString\": \"\(readyLocationState.address)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(readyLocationState.coordinates.latitude), \"longitude\": \(readyLocationState.coordinates.longitude)}".data(using: .utf8)
+        
+        do {
+            let studentLocationList = try JSONEncoder().encode(
+                StudentLocation(objectId: nil,
+                                uniqueKey: studentProfile.uniqueKey,
+                                firstName: studentProfile.firstName,
+                                lastName: studentProfile.lastName,
+                                mapString: readyLocationState.address,
+                                mediaURL: mediaURL,
+                                latitude: readyLocationState.coordinates.latitude,
+                                longitude: readyLocationState.coordinates.longitude,
+                                createdAt: nil
+                )
+            )
+            
+            request.httpBody = studentLocationList
+            
+        } catch {
+            print(error)
+        }
         
         return request
     }
