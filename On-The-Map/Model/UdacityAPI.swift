@@ -18,6 +18,8 @@ class UdacityAPI {
         
         case udacityUserDataURL = "https://onthemap-api.udacity.com/v1/users"
         
+        case udacityPostUserLocationURL = "https://onthemap-api.udacity.com/v1/StudentLocation"
+        
         var url : URL? {return URL(string: self.rawValue)}
         
     }
@@ -168,6 +170,16 @@ class UdacityAPI {
         
         task.resume()
         
+    }
+    
+    class func postStudentLocationRequest(url: URL, studentProfile: StudentProfile, readyLocationState : ReadyLocationState, mediaURL: String) -> URLRequest {
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = "{\"uniqueKey\": \"\(studentProfile.uniqueKey)\", \"firstName\": \"\(studentProfile.firstName)\", \"lastName\": \"\(studentProfile.lastName)\",\"mapString\": \"\(readyLocationState.address)\", \"mediaURL\": \"\(mediaURL)\",\"latitude\": \(readyLocationState.coordinates.latitude), \"longitude\": \(readyLocationState.coordinates.longitude)}".data(using: .utf8)
+        
+        return request
     }
     
 }

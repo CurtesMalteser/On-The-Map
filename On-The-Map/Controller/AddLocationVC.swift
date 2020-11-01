@@ -66,15 +66,15 @@ class AddLocationVC : UIViewController {
                       
             let studentProfile = StudentRepository.sharedInstance.studentProfile!
             
-            let url = addUrlTextField.text!
-            var request = URLRequest(url: URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!)
-            request.httpMethod = "POST"
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.httpBody = "{\"uniqueKey\": \"\(studentProfile.uniqueKey)\", \"firstName\": \"\(studentProfile.firstName)\", \"lastName\": \"\(studentProfile.lastName)\",\"mapString\": \"\(readyLocationState.address)\", \"mediaURL\": \"\(url)\",\"latitude\": \(readyLocationState.coordinates.latitude), \"longitude\": \(readyLocationState.coordinates.longitude)}".data(using: .utf8)
+            let mediaURL = addUrlTextField.text ?? ""
+            
+            let url = URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!
             
             let session = URLSession.shared
             
             self.present(networkActivityAlert, animated: true, completion: nil)
+            
+            let request = UdacityAPI.postStudentLocationRequest(url: url, studentProfile: studentProfile, readyLocationState:readyLocationState, mediaURL: mediaURL)
             
             let task = session.dataTask(with: request) { data, response, error in
                 if error != nil { // Handle error…
@@ -84,7 +84,6 @@ class AddLocationVC : UIViewController {
                         })
                     }
                     return
-                    
                 }
                 
                 DispatchQueue.main.async {
