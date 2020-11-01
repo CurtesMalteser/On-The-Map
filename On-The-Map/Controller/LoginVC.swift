@@ -104,6 +104,7 @@ class LoginVC:UIViewController {
     
     func setLogginIn(_ loggingIn: Bool) {
         if loggingIn {
+            
             loginActivity.startAnimating()
         } else {
             loginActivity.stopAnimating()

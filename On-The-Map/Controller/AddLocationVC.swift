@@ -15,9 +15,10 @@ class AddLocationVC : UIViewController {
     var locationState: LocationState = EmptyLocationState()
     
     lazy var locationErrorMessage = """
-Unable to find your location.
-Please try to change address.
-"""
+    Unable to find your location.
+    Please try to change address.
+    """
+    private lazy var networkActivityAlert = self.showNetworkActivityAlert()
     
     @IBOutlet weak var addAddressTextField: UITextField!
     
@@ -34,10 +35,15 @@ Please try to change address.
                 return
             }
             
+            self.present(networkActivityAlert, animated: true, completion: nil)
+            
             CLGeocoder().geocodeAddressString(address) {placemarks, error in
                 
                 if error != nil {
-                    self.showErrorAlert(message: self.locationErrorMessage)
+                    self.networkActivityAlert.dismiss(animated: false, completion: {
+                        self.showErrorAlert(message: self.locationErrorMessage)
+                    })
+                    
                     return
                 }
                 
@@ -48,6 +54,8 @@ Please try to change address.
                     self.locationMapView.positionOnMapCoordinates(coordinates)
                     
                     self.locationState = self.findLocationButton.enablePostLocation(address, coordinates: coordinates)
+                    
+                    self.networkActivityAlert.dismiss(animated: false, completion: nil)
                 }
                 
             }
