@@ -14,10 +14,16 @@ class AddLocationVC : UIViewController {
     
     var locationState: LocationState = EmptyLocationState()
     
-    lazy var locationErrorMessage = """
+    private lazy var locationErrorMessage = """
     Unable to find your location.
     Please try to change address.
     """
+    
+    private lazy var postLocationErrorMessage = """
+    Couldn't share your lcation.
+    Please try again later.
+    """
+    
     private lazy var networkActivityAlert = self.showNetworkActivityAlert()
     
     @IBOutlet weak var addAddressTextField: UITextField!
@@ -63,35 +69,26 @@ class AddLocationVC : UIViewController {
         } else if(locationState is ReadyLocationState) {
             
             let readyLocationState = (locationState as! ReadyLocationState)
-                      
-            let studentProfile = StudentRepository.sharedInstance.studentProfile!
+            
+            guard let postLocationURL = UdacityAPI.Endpoint.udacityPostUserLocationURL.url else {
+                print("Cannot create URL")
+                return
+            }
+            
+            guard let studentProfile = StudentRepository.sharedInstance.studentProfile else {
+                print("StudentProfile is nil")
+                return
+            }
             
             let mediaURL = addUrlTextField.text ?? ""
             
-            let url = URL(string: "https://onthemap-api.udacity.com/v1/StudentLocation")!
-            
-            let session = URLSession.shared
-            
             self.present(networkActivityAlert, animated: true, completion: nil)
             
-            let request = UdacityAPI.postStudentLocationRequest(url: url, studentProfile: studentProfile, readyLocationState:readyLocationState, mediaURL: mediaURL)
+            let request = UdacityAPI.postStudentLocationRequest(url: postLocationURL, studentProfile: studentProfile, readyLocationState:readyLocationState, mediaURL: mediaURL)
             
-            let task = session.dataTask(with: request) { data, response, error in
-                if error != nil { // Handle error…
-                    DispatchQueue.main.async {
-                        self.networkActivityAlert.dismiss(animated: false, completion: {
-                            self.showErrorAlert(message: self.locationErrorMessage)
-                        })
-                    }
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    self.networkActivityAlert.dismiss(animated: false, completion:nil)
-                }
-            }
-            
-            task.resume()
+            UdacityAPI.executeDataTask(request: request,
+                                       sucessHandler: { _ in self.getStudentsList() },
+                                       errorHandler: { _ in self.handlePostStudentLocationError() })
             
         }
     }
@@ -116,6 +113,32 @@ class AddLocationVC : UIViewController {
         
     }
     
+    /**
+     Used to refres students list after successfully post location
+     */
+    private func getStudentsList() {
+        guard let studentsURL = UdacityAPI.Endpoint.getListOfStudentLocation.url else {
+            print("Cannot create URL")
+            return
+        }
+        
+        UdacityAPI.getStudentsDataTask(url: studentsURL,
+                                       sucessHandler: {studentLocationList in
+                                        DispatchQueue.main.async {
+                                            StudentRepository.sharedInstance.studentLocationList = studentLocationList
+                                            self.networkActivityAlert.dismiss(animated: false, completion:nil)
+                                        }
+                                       },
+                                       errorHandler: { error in print("error \(String(describing: error))")})
+    }
+    
+    private func handlePostStudentLocationError() {
+        DispatchQueue.main.async {
+            self.networkActivityAlert.dismiss(animated: false, completion: {
+                self.showErrorAlert(message: self.postLocationErrorMessage)
+            })
+        }
+    }
 }
 
 fileprivate extension UIButton {
