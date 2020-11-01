@@ -55,7 +55,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="plus" catalog="system" id="Q1o-XK-EiV">
+                            <barButtonItem image="mappin.and.ellipse" catalog="system" id="Q1o-XK-EiV">
                                 <connections>
                                     <action selector="segueToAddLocation:" destination="Vdy-sg-Wzx" id="sPZ-C9-Iwz"/>
                                 </connections>
@@ -227,7 +227,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="plus" catalog="system" id="hfu-ig-Aki">
+                            <barButtonItem title="Item" image="mappin.and.ellipse" catalog="system" id="hfu-ig-Aki">
                                 <connections>
                                     <action selector="segueToAddLocation:" destination="hvM-T6-cDq" id="6To-op-S8X"/>
                                 </connections>
@@ -338,14 +338,14 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="B6F-Kk-rfn"/>
+        <segue reference="3hc-3p-FLZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="list.bullet" catalog="system" width="128" height="88"/>
         <image name="map" catalog="system" width="128" height="110"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="mappin.and.ellipse" catalog="system" width="118" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
