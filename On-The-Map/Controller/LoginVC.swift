@@ -37,7 +37,7 @@ class LoginVC:UIViewController {
 
         func getProfileData(_ studentSession: StudentSession) {
             UdacityAPI.onLoginSucessGetProfileDataTask(studentSession: studentSession,
-                                                   sucessHandler: { studentProfile in
+                                                   successHandler: { studentProfile in
                                                     self.onLoginSucess(studentProfile)
                                                    },
                                                    errorHandler: {_ in self.showErrorAlert(message: self.sessionErrorMessage)})
@@ -46,7 +46,7 @@ class LoginVC:UIViewController {
         let request = UdacityAPI.initLoginRequest(url: loginURL, username: email, password: password)
 
         UdacityAPI.executeDataTask(request: request,
-                                   sucessHandler: { data in
+                                   successHandler: { data in
 
                                     let decoder = JSONDecoder()
 

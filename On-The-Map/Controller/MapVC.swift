@@ -32,7 +32,7 @@ class MapVC: BaseStudentsVC, MKMapViewDelegate {
     }
     
     private func getStudentsList(_ reset: Bool = false) {
-        getStudentsList(sucessHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)}, reset: reset)
+        getStudentsList(successHandler: {studentLocationList in self.addStudentsPointAnnotation(studentLocationList)}, reset: reset)
     }
 
     private func addStudentsPointAnnotation(_ studentLocationList: [StudentLocation]) {

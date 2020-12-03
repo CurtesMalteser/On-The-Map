@@ -30,7 +30,7 @@ class StudentsLocationTableVC:BaseStudentsVC, UITableViewDelegate, UITableViewDa
     }
     
     private func getStudentsList(_ reset: Bool = false) {
-        getStudentsList(sucessHandler: {_ in self.studentLocationTable.reloadData()}, reset: reset)
+        getStudentsList(successHandler: {_ in self.studentLocationTable.reloadData()}, reset: reset)
     }
     
     

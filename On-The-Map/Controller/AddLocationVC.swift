@@ -87,7 +87,7 @@ class AddLocationVC : UIViewController {
             let request = UdacityAPI.postStudentLocationRequest(url: postLocationURL, studentProfile: studentProfile, readyLocationState:readyLocationState, mediaURL: mediaURL)
             
             UdacityAPI.executeDataTask(request: request,
-                                       sucessHandler: { _ in self.getStudentsList() },
+                                       successHandler: { _ in self.getStudentsList() },
                                        errorHandler: { _ in self.handlePostStudentLocationError() })
             
         }
@@ -123,7 +123,7 @@ class AddLocationVC : UIViewController {
         }
         
         UdacityAPI.getStudentsDataTask(url: studentsURL,
-                                       sucessHandler: {studentLocationList in
+                                       successHandler: {studentLocationList in
                                         DispatchQueue.main.async {
                                             StudentRepository.sharedInstance.studentLocationList = studentLocationList
                                             self.networkActivityAlert.dismiss(animated: false, completion:nil)
